@@ -1,0 +1,16 @@
+{
+	"name": "boilerplate",
+	"version": "0.0.1",
+	"description": "boilerplate for front (CSS & JS automation)",
+	"scripts": {
+	},
+	"keywords": [
+		"NPM",
+		"HTML",
+		"CSS",
+		"SASS",
+		"JS"
+	],
+	"author": "Guillaume HAREL",
+	"license": "ISC"
+}
