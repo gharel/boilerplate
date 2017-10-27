@@ -136,3 +136,9 @@ typings/
 
 # dotenv environment variables file
 .env
+
+### Specific
+dist/
+build/
+temp/
+tmp/
