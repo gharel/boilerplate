@@ -1,0 +1,19 @@
+// Variables
+@import "1.settings/global";
+@import "1.settings/colors";
+
+// Functions or mixins
+//@import "2.tools/healthcheck"; // show border on BEMIT class
+
+// Reset or normalize, and also CSS framework like Bootstrap
+@import "3.generic/libraries";
+
+// Style for basic tag
+@import "4.base/img";
+
+// Style for redundant objects
+
+// Style for specific components
+@import "6.components/example";
+
+// Utilities and hacks if necessary

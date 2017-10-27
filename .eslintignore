@@ -1,0 +1,6 @@
+**/*.min.js
+**/vendor/*
+**/dist/*
+**/build/*
+**/temp/*
+**/tmp/*
