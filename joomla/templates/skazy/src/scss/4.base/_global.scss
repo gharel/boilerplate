@@ -1,0 +1,24 @@
+html {
+	//font-family: Montserrat, sans-serif;
+	//font-family: Rubik, sans-serif;
+	//font-family: "Source Sans Pro", sans-serif;
+	
+	//fix scrollbar jumping, see https://aykevl.nl/2014/09/fix-jumping-scrollbar
+	width: 100vw;
+	overflow-x: hidden;
+	font-size: 0.625rem;
+	&.scrollbar.no-touch{
+		padding-right: $scrollbar-width; // width of scrollbar
+	}
+}
+body {
+	font-size: 1.6rem;
+	.touch & {
+		width: 100vw;
+		overflow-x: hidden;
+	}
+}
+
+sup {
+	font-size: 60%;
+}

@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = (ctx) => ({
-  plugins: {
-    autoprefixer: { cascade: false }
-  }
+	plugins: {
+		autoprefixer: {cascade: false}
+	}
 })

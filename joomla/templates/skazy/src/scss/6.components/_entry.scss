@@ -1,0 +1,53 @@
+.c-entry {
+	font-family: Rubik, sans-serif;
+	font-weight: 300;
+	color: lighten($color-dark, 20);
+	margin-top: 4rem;
+	&__item {
+		margin-top: 4rem;
+		&:first-child {
+			padding-right: 5rem;
+			@include media-breakpoint-down(sm) {
+				padding-right: $grid-gutter-width/2;
+			}
+		}
+		&:last-child {
+			padding-left: 5rem;
+			@include media-breakpoint-down(sm) {
+				padding-left: $grid-gutter-width/2;
+			}
+		}
+		.row {
+			@include media-breakpoint-down(lg) {
+				min-height: 8.6rem;
+			}
+			@include media-breakpoint-down(sm) {
+				display: block;
+				.o-btn--quaternary {
+					margin-top: 1rem;
+				}
+			}
+		}
+		.o-btn + .o-btn {
+			margin-top: 1rem;
+		}
+	}
+	&__title {
+		font-size: 3rem;
+		font-weight: 300;
+		display: flex;
+		&::after {
+			background: transparentize(lighten($color-dark, 20), .5);
+			content: "";
+			display: inline-block;
+			flex: auto;
+			flex-grow: 1;
+			height: .1rem;
+			align-self: center;
+			margin-left: .75rem;
+		}
+	}
+	.o-media {
+		margin-top: 7rem;
+	}
+}

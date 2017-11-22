@@ -1,0 +1,76 @@
+.c-offer {
+	$p: &;
+	margin-top: 14rem;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	font-family: Rubik, sans-serif;
+	&--full {
+		position: relative;
+		&::before {
+			content: "";
+			display: block;
+			width: 50%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			background: transparentize($color-secondary, .5);
+			border-right: .1rem solid transparentize($color-light, .5);
+			@include media-breakpoint-down(sm) {
+				content: none;
+			}
+		}
+	}
+	h3 {
+		font-size: 4rem;
+		margin-bottom: 4rem;
+		@include media-breakpoint-down(lg) {
+			font-size: 3rem;
+			margin-bottom: 3rem;
+		}
+	}
+	h4 {
+		font-size: 3rem;
+		margin-bottom: 0;
+		@include media-breakpoint-down(lg) {
+			font-size: 2rem;
+		}
+	}
+	h3,
+	h4 {
+		font-weight: 700;
+		color: $color-light;
+	}
+	p {
+		color: $color-dark;
+		&:last-of-type {
+			margin-bottom: 3rem;
+		}
+	}
+	h3,
+	h4,
+	p {
+		text-transform: uppercase;
+	}
+	&__col {
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+		@include media-breakpoint-down(sm) {
+			padding: 5rem;
+		}
+		& + & {
+			display: flex;
+			.btn {
+				margin: auto;
+				@include media-breakpoint-down(md) {
+					white-space: normal;
+					width: 75%;
+				}
+				@include media-breakpoint-down(sm) {
+					width: auto;
+				}
+			}
+		}
+	}
+}

@@ -1,21 +1,37 @@
-# Boilerplate
-Just an architecture with script to minify and much more for front
+# Template Skazy
+Joomla Template with SASS, jQuery and Bootstrap
 
-##install
+## Requirements
+- Node.js (see https://nodejs.org)
+- SASS (see http://sass-lang.com/install)
 
-#SASS
-if you create a new SASS file, you need to add it in main.scss
+## Technologies - languages
+- HTML
+- CSS
+- SASS
+- BEM
+- ITCSS
+- Bootstrap 4
+- JavaScript
+- jQuery
+- node.js
 
-##TODO
-HTML
+## Install
+```npm i``` install Node modules before use them  
 
-SASS
-reorganise
-build without sourcemap
-watch with sourcemap
+## Use
+```npm start``` run watcher for SCSS and JS with live reload  
+```npm run lint``` check HTML, SCSS and JS files and give advise to code properly  
+```npm run build``` generate dist folder for prod (contains CSS, JS, img)  
+```npm run scss:clean``` clean and reorder SCSS files /!\ check before commit can be destructive /!\  
 
-Autoprefixer
-
-JS
-
-Browsersync
+## Tasks list
+- [x] Use SASS
+- [x] Use BrowserSync to live reload
+- [x] Include Bootstrap & jQuery
+- [x] Use BEMIT (ITCSS)
+- [x] Use imagemin to optimize images
+- [x] Use svg-sprite to regroup SVG
+- [x] Use csscomb to clean SCSS
+- [ ] Fix csscomb on comments, @include and $p: &;
+- [ ] Replace Windows variables with cross-platform variables

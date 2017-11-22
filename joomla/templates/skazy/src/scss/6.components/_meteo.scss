@@ -1,0 +1,136 @@
+.c-meteo {
+	$p: &;
+	color: $color-light;
+	display: inline-block;
+	vertical-align: top;
+	$border-spacing: 2rem;
+	$line-height: 2.2rem;
+	position: absolute;
+	top: 3rem;
+	right: 1rem;
+	font-family: "Rubik", sans-serif;
+	font-size: 1.6rem;
+	font-weight: 300;
+	overflow: hidden;
+	@include media-breakpoint-down(md) {
+		font-size: 1.2rem;
+	}
+	&--push {
+		@extend .c-meteo;
+		color: darken($color-neutral, 40);
+		top: -.5rem;
+		right: 0;
+		font-size: 2rem;
+		@include media-breakpoint-down(md) {
+			display: none;
+		}
+	}
+	&__wrapper {
+		width: auto;
+		text-align: center;
+		display: table;
+		position: relative;
+		border-spacing: $border-spacing;
+		padding-bottom: 1rem;
+		margin: -#{$border-spacing} -#{$border-spacing * 2} -#{$border-spacing} -#{$border-spacing};
+		font-size: 1em;
+	}
+	&__row {
+		display: table-row;
+	}
+	&__col {
+		display: table-cell;
+		vertical-align: middle;
+		& + &::before {
+			content: "";
+			height: $line-height;
+			width: .1rem;
+			display: inline-block;
+			background: transparentize($color-light, .5);
+			vertical-align: middle;
+			float: left;
+			margin-left: -$border-spacing/2;
+			#{$p}--push & {
+				height: 8rem;
+				background: transparentize(darken($color-neutral, 40), .5);
+			}
+		}
+	}
+	&__up {
+		line-height: $line-height;
+		#{$p}__col {
+			&:first-child {
+				text-align: left;
+			}
+			&:last-child {
+				text-align: right;
+			}
+			#{$p}--push & + #{$p}__col::before {
+				content: none;
+			}
+		}
+		#{$p}--push & {
+			line-height: 4rem;
+		}
+		&::after {
+			content: "";
+			display: block;
+			width: calc(100% - #{$border-spacing} * 3);
+			background: transparentize($color-light, .5);
+			position: absolute;
+			height: .1rem;
+			left: $border-spacing;
+			top: 5rem;
+			#{$p}--push & {
+				top: 6rem;
+				background: transparentize(darken($color-neutral, 40), .5);
+			}
+		}
+	}
+	&__down {
+		line-height: $line-height;
+		#{$p}--push & {
+			line-height: 8rem;
+		}
+	}
+	&__footer {
+		position: absolute;
+		margin-top: -1.4rem;
+		width: calc(100% - #{$border-spacing} * 3);
+	}
+	&__svg {
+		font-size: 2.8rem;
+		height: $line-height;
+		vertical-align: top;
+		#{$p}--push & {
+			height: 8rem;
+			fill: $color-primary;
+			font-size: 9rem;
+			padding-left: 1rem;
+		}
+	}
+	&__city,
+	&__date {
+		white-space: nowrap;
+	}
+	&__temperature {
+		font-size: 1.35em;
+		#{$p}--push & {
+			font-size: 3em;
+			color: $color-primary;
+			padding-right: 1rem;
+		}
+	}
+	&__link {
+		color: $color-light;
+		font-size: 1rem;
+		text-decoration: none;
+		&:hover {
+			color: inherit;
+			text-decoration: underline;
+		}
+		#{$p}--push & {
+			color: darken($color-neutral, 40);
+		}
+	}
+}

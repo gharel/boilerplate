@@ -1,3 +1,12 @@
+### Joomla specific
+httpdocs/configuration.php
+httpdocs/cache
+httpdocs/logs
+httpdocs/tmp
+httpdocs/images
+httpdocs/logs/error.php
+httpdocs/cookie.txt
+
 ### macOS template
 # General
 .DS_Store
@@ -142,3 +151,4 @@ dist/
 build/
 temp/
 tmp/
+___htaccess

@@ -1,0 +1,47 @@
+.o-media {
+	$p: &;
+	border: .1rem solid lighten($color-neutral, 5);
+	background: lighten($color-neutral, 15);
+	overflow: hidden;
+	&--video {
+		@extend .o-media;
+		padding: 3rem;
+		position: relative;
+		@include media-breakpoint-down(md) {
+			padding: 1.5rem;
+		}
+	}
+	&__play {
+		background: transparentize($color-dark, .75);
+		width: 8.4rem;
+		height: 8.4rem;
+		border-radius: 10rem;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -4.2rem;
+		margin-left: -4.2rem;
+		text-align: center;
+		color: $color-light;
+		font-size: 2.75em;
+		line-height: 8.4rem;
+		transition: transform $transition, background $transition, color $transition;
+		z-index: 2;
+		.o-svg {
+			margin-left: 1rem;
+		}
+	}
+	img {
+		transition: transform $transition;
+		position: relative;
+		z-index: 1;
+	}
+	&:hover {
+		img {
+			transform: scale(1.25);
+		}
+		#{$p}__play {
+			background: transparentize($color-dark, .25);
+		}
+	}
+}

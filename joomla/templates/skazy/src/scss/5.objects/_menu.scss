@@ -1,0 +1,133 @@
+.menu-open {
+	.o-page {
+		height: 100vh;
+		overflow-y: hidden;
+	}
+}
+
+.o-menu {
+	$p: &;
+	display: none;
+	position: fixed;
+	background: $color-primary;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: $zindex-modal-backdrop;
+	overflow: auto;
+	font-size: 2.4rem;
+	font-family: Rubik, sans-serif;
+	font-weight: 500;
+	&.open {
+		display: flex;
+	}
+	&__list {
+		@include list-unstyled;
+		margin: auto;
+		padding: 5rem 0;
+	}
+	&__item {
+		display: block;
+		text-align: center;
+		color: $color-light;
+		& + & {
+			border-top: .1rem solid transparentize($color-light, .5);
+		}
+		&.open {
+			color: transparentize($color-dark, .25);
+			#{$p}__link {
+				color: transparentize($color-dark, .25);
+				.o-svg {
+					transform: rotate(90deg);
+				}
+			}
+		}
+	}
+	&__link {
+		line-height: 1.35;
+		color: inherit;
+		text-transform: uppercase;
+		padding: 1rem 0;
+		display: block;
+		.o-svg {
+			font-size: 1.2rem;
+			margin-right: 1rem;
+			vertical-align: -.08em;
+			transition: transform $transition;
+		}
+		&:hover {
+			text-decoration: none;
+			color: inherit;
+		}
+	}
+	&__sublist {
+		@include list-unstyled;
+		margin-bottom: 0;
+		line-height: 1.05;
+		padding-bottom: 2rem;
+		#{$p}__item + #{$p}__item {
+			border-top: 0;
+		}
+		#{$p}__link {
+			font-size: 1.8rem;
+			font-weight: 300;
+			text-transform: none;
+			padding: 0;
+		}
+	}
+	&__show {
+		position: relative;
+		z-index: $zindex-modal;
+		width: 3rem;
+		height: 2rem;
+		margin: 1.6rem 0;
+		transform: rotate(0deg);
+		transition: $transition-long;
+		cursor: pointer;
+		display: inline-block;
+		vertical-align: top;
+		&.open {
+			#{$p}__bar {
+				background-color: $color-light;
+				&:nth-child(1) {
+					top: .8rem;
+					width: 0;
+					left: 50%;
+				}
+				&:nth-child(2) {
+					transform: rotate(45deg);
+				}
+				&:nth-child(3) {
+					transform: rotate(-45deg);
+				}
+				&:nth-child(4) {
+					top: .8rem;
+					width: 0;
+					left: 50%;
+				}
+			}
+		}
+	}
+	&__bar {
+		display: block;
+		position: absolute;
+		height: .4rem;
+		width: 100%;
+		background: $color-primary;
+		opacity: 1;
+		left: 0;
+		transform: rotate(0deg);
+		transition: $transition;
+		&:nth-child(1) {
+			top: 0;
+		}
+		&:nth-child(2),
+		&:nth-child(3) {
+			top: .8rem;
+		}
+		&:nth-child(4) {
+			top: 1.6rem;
+		}
+	}
+}

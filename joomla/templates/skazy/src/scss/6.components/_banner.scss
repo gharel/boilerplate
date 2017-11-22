@@ -1,0 +1,13 @@
+.c-banner {
+	border: .1rem solid $color-neutral;
+	border-radius: .5rem;
+	overflow: hidden;
+	margin-top: 6rem;
+	iframe {
+		vertical-align: top;
+		margin: auto;
+		@include media-breakpoint-down(md) {
+			width: 100%;
+		}
+	}
+}

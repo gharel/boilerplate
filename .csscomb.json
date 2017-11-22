@@ -2,12 +2,10 @@
 	"exclude": [
 		".idea/**",
 		".git/**",
-		"dist/**",
-		"build/**",
-		"temp/**",
-		"tmp/**",
-		"node_modules/**"
+		"node_modules/**",
+		"**/_libraries.scss"
 	],
+	"verbose": true,
 	"always-semicolon": true,
 	"block-indent": "\t",
 	"color-case": "lower",
@@ -16,7 +14,7 @@
 	"eof-newline": true,
 	"leading-zero": false,
 	"quotes": "double",
-	"remove-empty-rulesets": true,
+	"remove-empty-rulesets": false,
 	"sort-order-fallback": "abc",
 	"space-before-colon": "",
 	"space-after-colon": " ",
@@ -26,11 +24,12 @@
 	"space-after-opening-brace": "\n",
 	"space-before-selector-delimiter": "",
 	"space-after-selector-delimiter": "\n",
-	"space-between-declarations": "\n\n",
+	"space-between-declarations": "\n",
 	"space-before-closing-brace": "\n",
 	"strip-spaces": true,
 	"unitless-zero": true,
 	"vendor-prefix-align": true,
+	"lines-between-rulesets": 0,
 	"sort-order": [
 		"font",
 		"font-family",

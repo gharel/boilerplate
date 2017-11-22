@@ -1,0 +1,57 @@
+.c-cta {
+	@include list-unstyled;
+	margin-top: 6rem;
+	margin-bottom: 0;
+	border: .1rem solid $color-neutral;
+	border-left: 0;
+	border-right: 0;
+	font-size: 0;
+	font-family: Rubik, sans-serif;
+	font-weight: 500;
+	display: flex;
+	padding: 2.5rem 0;
+	@include media-breakpoint-down(sm) {
+		display: block;
+		padding: 0 2rem;
+	}
+	&__item {
+		text-transform: uppercase;
+		flex: auto;
+		font-size: 2rem;
+		line-height: 1.5;
+		text-align: center;
+		padding: .75rem 0;
+		@include media-breakpoint-down(lg) {
+			font-size: 1.6rem;
+		}
+		& + & {
+			border-left: .1rem solid $color-neutral;
+			@include media-breakpoint-down(sm) {
+				border-left: 0;
+				border-top: .1rem solid transparentize($color-neutral, .75);
+			}
+		}
+	}
+	&__link {
+		color: $color-dark;
+		display: block;
+		.o-svg {
+			font-size: 2em;
+			color: darken($color-neutral, 20);
+			vertical-align: middle;
+			margin-right: 1rem;
+			@include media-breakpoint-down(md) {
+				font-size: 3em;
+				margin: 0 auto 1rem;
+				display: block;
+			}
+		}
+		&:hover {
+			color: $color-secondary;
+			text-decoration: none;
+			.o-svg {
+				color: inherit;
+			}
+		}
+	}
+}

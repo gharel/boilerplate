@@ -1,22 +1,65 @@
 {
-	"name": "boilerplate",
+	"name": "template-joomla",
 	"version": "0.0.1",
-	"description": "boilerplate for front (CSS & JS automation)",
+	"description": "template joomla with CSS & JS automation",
+	"config": {
+		"template_dir": "httpdocs/templates/skazy",
+		"project_url": "air-caledonie.local"
+	},
 	"scripts": {
-		"prewatch": "echo prewatch",
-		"postwatch": "echo postwatch",
-		"watch": "",
-		"build": "shx rm -rf build && shx rm -rf dist && npm run build:scss && npm run build:css:prefix && npm run build:css:minify && npm run build:js",
-		"build:scss": "node-sass src/scss/main.scss build/css/main.css --source-map true",
-		"build:css:prefix": "postcss --config postcss.config.js --replace \"build/css/*.css\" --map",
-		"build:css:minify": "cleancss -O1 specialComments:0 -O2 --output build/css/main.min.css build/css/main.css && shx mkdir -p dist/css && shx cp -rf build/css dist && shx rm -rf build/css",
-		"build:js": "npm run build:js:babel && npm run build:js:minify && shx mkdir -p dist/js && shx cp -rf build/js dist && shx rm -rf build/js",
-		"build:js:babel": "shx mkdir -p build/js && babel node_modules/jquery/dist/jquery.js node_modules/bootstrap/dist/js/bootstrap.bundle.js src/js --out-file build/js/main.js --source-maps",
-		"build:js:minify": "uglifyjs node_modules/jquery/dist/jquery.js node_modules/bootstrap/dist/js/bootstrap.bundle.js build/js/main.js -o build/js/main.min.js",
+		"scss:clean": "csscomb %npm_package_config_template_dir%/src/scss",
+
+		"browsersync": "browser-sync start --proxy \"%npm_package_config_project_url%\" --files \"%npm_package_config_template_dir%/dist\" --browser \"chrome\"",
+
+		"prestart": "npm install",
+		"start": "npm run watch",
+
+		"prewatch": "npm run clean && npm run init",
+		"watch": "npm-run-all --parallel watch:css watch:js watch:img watch:svg browsersync",
+
+		"watch:css": "nodemon --watch %npm_package_config_template_dir%/src/scss/ -e scss -x \"npm run watch:scss\"",
+		"watch:scss": "npm-run-all --sequential watch:scss:scss watch:scss:prefix",
+		"watch:scss:scss": "node-sass %npm_package_config_template_dir%/src/scss/main.scss %npm_package_config_template_dir%/build/css/main.css --source-map true",
+		"watch:scss:prefix": "postcss %npm_package_config_template_dir%/build/css/main.css --config postcss.config.js -o %npm_package_config_template_dir%/dist/css/main.css --map",
+
+		"watch:js": "npm-run-all --parallel watch:js:babel watch:js:third",
+		"watch:js:babel": "babel node_modules/jquery/dist/jquery.js node_modules/bootstrap/dist/js/bootstrap.bundle.js %npm_package_config_template_dir%/src/js/scripts --out-file %npm_package_config_template_dir%/dist/js/main.js --source-maps --watch",
+		"watch:js:third": "nodemon --watch %npm_package_config_template_dir%/src/js/ -e js --ignore scripts/ -x \"npm run build:js:third\"",
+
+		"watch:img": "nodemon --watch %npm_package_config_template_dir%/src/img/ -e png,jpg,jpeg,gif -x \"npm run build:img\"",
+		"watch:svg": "nodemon --watch %npm_package_config_template_dir%/src/svg/ -e svg -x \"npm run build:svg\"",
+
+		"build": "npm run build:css && npm run build:js && npm run build:img && npm run build:svg",
+
+		"build:css": "npm run build:css:clean && npm run build:css:init && npm run build:css:scss && npm run build:css:prefix && npm run build:css:minify && npm run build:css:copy",
+		"build:css:clean": "shx rm -rf %npm_package_config_template_dir%/build/css && shx rm -rf %npm_package_config_template_dir%/dist/css",
+		"build:css:init": "shx mkdir -p %npm_package_config_template_dir%/build/css && shx mkdir -p %npm_package_config_template_dir%/dist/css",
+		"build:css:scss": "node-sass %npm_package_config_template_dir%/src/scss/main.scss %npm_package_config_template_dir%/build/css/main.css --source-map true",
+		"build:css:prefix": "postcss --config postcss.config.js --replace \"%npm_package_config_template_dir%/build/css/main.css\" --map",
+		"build:css:minify": "cleancss -O1 specialComments:0 -O2 --output %npm_package_config_template_dir%/build/css/main.min.css %npm_package_config_template_dir%/build/css/main.css",
+		"build:css:copy": "shx cp -rf %npm_package_config_template_dir%/build/css %npm_package_config_template_dir%/dist",
+
+		"build:js": "npm run build:js:clean && npm run build:js:init && npm run build:js:babel && npm run build:js:minify && npm run build:js:copy && npm run build:js:third",
+		"build:js:clean": "shx rm -rf %npm_package_config_template_dir%/build/js && shx rm -rf %npm_package_config_template_dir%/dist/js",
+		"build:js:init": "shx mkdir -p %npm_package_config_template_dir%/build/js && shx mkdir -p %npm_package_config_template_dir%/dist/js",
+		"build:js:babel": "babel node_modules/jquery/dist/jquery.js node_modules/bootstrap/dist/js/bootstrap.bundle.js %npm_package_config_template_dir%/src/js/scripts --out-file %npm_package_config_template_dir%/build/js/main.js --source-maps",
+		"build:js:minify": "uglifyjs %npm_package_config_template_dir%/build/js/main.js -o %npm_package_config_template_dir%/build/js/main.min.js",
+		"build:js:copy": "shx cp -rf %npm_package_config_template_dir%/build/js %npm_package_config_template_dir%/dist",
+		"build:js:third": "shx cp -rf %npm_package_config_template_dir%/src/js/*.js %npm_package_config_template_dir%/dist/js",
+
+		"build:img": "imagemin %npm_package_config_template_dir%/src/img/* --out-dir=%npm_package_config_template_dir%/dist/img/",
+		"build:svg": "svg-sprite --log \"info\" --shape-spacing-padding=\"1,1,1,1\" --symbol --symbol-sprite=\"svg/sprite.svg\" --symbol-dest=. --dest=%npm_package_config_template_dir%/dist \"%npm_package_config_template_dir%/src/svg/**/*.svg\"",
+		"build:media:clean": "shx rm -rf %npm_package_config_template_dir%/dist/img && shx rm -rf %npm_package_config_template_dir%/dist/svg",
+		"build:media:init": "shx mkdir -p %npm_package_config_template_dir%/dist/img && shx mkdir -p %npm_package_config_template_dir%/dist/svg",
+
+		"clean": "npm run build:css:clean && npm run build:js:clean && npm run build:media:clean",
+		"init": "npm run build:css:init && npm run build:js:init && npm run build:media:init",
+		"init:js": "shx cp -f node_modules/jquery/dist/jquery.js %npm_package_config_template_dir%/dist/js && shx cp -f node_modules/bootstrap/dist/js/bootstrap.bundle.js %npm_package_config_template_dir%/dist/js",
+
 		"lint": "npm run lint:html && npm run lint:scss && npm run lint:js",
-		"lint:html": "htmllint --rc .htmllintrc src/**/*.html || exit 0",
-		"lint:scss": "stylelint --config .stylelintrc --formatter verbose --syntax scss \"src/scss/**/*.scss\" || exit 0",
-		"lint:js": "eslint --config .eslintrc.json src/js/**/*.js || exit 0"
+		"lint:html": "htmllint --rc .htmllintrc %npm_package_config_template_dir%/**/*.html || exit 0",
+		"lint:scss": "stylelint --config .stylelintrc --formatter verbose --syntax scss \"%npm_package_config_template_dir%/src/scss/**/*.scss\" || exit 0",
+		"lint:js": "eslint --config .eslintrc.json %npm_package_config_template_dir%/src/js/scripts/**/*.js || exit 0"
 	},
 	"keywords": [
 		"NPM",
@@ -34,17 +77,16 @@
 		"babel-cli": "^6.26.0",
 		"babel-eslint": "^8.0.1",
 		"babel-preset-env": "^1.6.1",
-		"bootstrap": "^4.0.0-beta.2",
 		"browser-sync": "^2.18.13",
 		"clean-css-cli": "^4.1.10",
-		"cross-env": "^5.1.0",
 		"csscomb": "^4.2.0",
 		"eslint": "^4.9.0",
 		"eslint-plugin-compat": "^2.0.1",
 		"htmllint-cli": "0.0.6",
 		"imagemin": "^5.3.1",
-		"jquery": "^3.2.1",
+		"imagemin-cli": "^3.0.0",
 		"node-sass": "^4.5.3",
+		"nodemon": "^1.12.1",
 		"npm-run-all": "^4.1.1",
 		"postcss-cli": "^4.1.1",
 		"shelljs": "^0.7.8",
@@ -57,5 +99,8 @@
 		"svg-sprite": "^1.3.7",
 		"uglify-js": "^3.1.5"
 	},
-	"dependencies": {}
+	"dependencies": {
+		"bootstrap": "^4.0.0-beta.2",
+		"jquery": "^3.2.1"
+	}
 }

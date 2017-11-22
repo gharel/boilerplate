@@ -1,0 +1,44 @@
+// Variables
+@import "1.settings/global";
+@import "1.settings/colors";
+
+// Functions or mixins
+//@import "2.tools/healthcheck"; // show border on BEMIT class
+@import "2.tools/mixins";
+
+// Reset or normalize, and also CSS framework like Bootstrap
+@import "3.generic/libraries";
+
+// Style for basic tag
+@import "4.base/bootstrap";
+@import "4.base/global";
+@import "4.base/img";
+
+// Style for redundant objects
+@import "5.objects/layout";
+@import "5.objects/header";
+@import "5.objects/menu";
+@import "5.objects/lang";
+@import "5.objects/branding";
+@import "5.objects/aside";
+@import "5.objects/footer";
+@import "5.objects/button";
+@import "5.objects/media";
+@import "5.objects/title";
+@import "5.objects/svg";
+
+// Style for specific components
+@import "6.components/meteo";
+@import "6.components/banner";
+@import "6.components/slider";
+@import "6.components/cta";
+@import "6.components/map";
+@import "6.components/push";
+@import "6.components/frame";
+@import "6.components/offer";
+@import "6.components/entry";
+@import "6.components/fleet";
+@import "6.components/pub";
+
+// Utilities and hacks if necessary
+@import "7.utils/global";

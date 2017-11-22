@@ -1,0 +1,103 @@
+.c-frame {
+	$p: &;
+	font-family: Rubik, sans-serif;
+	font-weight: 300;
+	margin-top: 20rem;
+	color: lighten($color-dark, 20);
+	padding-bottom: 2rem;
+	.row {
+		justify-content: space-between;
+	}
+	&__title {
+		font-size: 2.8rem;
+		font-weight: 300;
+		margin-bottom: 3rem;
+		@include media-breakpoint-down(lg) {
+			font-size: 2.4rem;
+		}
+		@include media-breakpoint-down(md) {
+			min-height: 5.6rem;
+		}
+	}
+	&__item {
+		max-width: 37.5rem;
+		height: 50rem;
+		text-align: center;
+		margin: auto;
+		@include media-breakpoint-down(lg) {
+			max-width: 30rem;
+			height: 46rem;
+		}
+		@include media-breakpoint-down(md) {
+			max-width: 22rem;
+			height: 42rem;
+		}
+	}
+	&__link {
+		display: block;
+		background-position: center top;
+		background-repeat: no-repeat;
+		background-size: contain;
+		color: inherit;
+		font-size: 2rem;
+		position: relative;
+		line-height: 1.5;
+		img {
+			position: relative;
+			z-index: 3;
+			border: .1rem solid transparent;
+		}
+		#{$p}__bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 1;
+		}
+		h4 {
+			margin-top: 3.5rem;
+			font-weight: 300;
+			font-size: 2.2rem;
+			padding: 0 2rem;
+			@include media-breakpoint-down(md) {
+				margin-top: 1.2rem;
+			}
+		}
+		p {
+			padding: 1rem 5rem;
+		}
+		&::after {
+			background: url("../img/frame-off.png") no-repeat center top;
+			position: absolute;
+			top: 14rem;
+			width: 100%;
+			left: 0;
+			content: "";
+			display: block;
+			height: 30rem;
+			z-index: 2;
+			@include media-breakpoint-down(lg) {
+				background-size: 90%;
+				height: 26rem;
+			}
+			@include media-breakpoint-down(md) {
+				top: 12rem;
+				height: 20rem;
+			}
+			@include media-breakpoint-down(sm) {
+				height: 20rem;
+			}
+		}
+		&:hover {
+			text-decoration: none;
+			color: inherit;
+			#{$p}__bg {
+				border-color: darken($color-light, 10);
+				filter: grayscale(100%);
+			}
+			&::after {
+				background-image: url("../img/frame-on.png");
+			}
+		}
+	}
+}

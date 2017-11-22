@@ -1,0 +1,55 @@
+.c-push {
+	margin-top: 6rem;
+	font-family: Rubik, sans-serif;
+	position: relative;
+	.row {
+		justify-content: space-between;
+	}
+	h3 {
+		font-weight: 300;
+		margin-bottom: 2.5rem;
+	}
+	&__head {
+		margin-bottom: 4rem;
+	}
+	&__item {
+		margin-top: 4rem;
+		text-align: center;
+		h4 {
+			font-weight: 400;
+			font-size: 2rem;
+			color: $color-secondary;
+			@include media-breakpoint-down(lg) {
+				font-size: 1.6rem;
+			}
+		}
+		.o-btn {
+			padding-left: 10%;
+			padding-right: 10%;
+			@include media-breakpoint-down(lg) {
+				padding-left: 5%;
+				padding-right: 5%;
+			}
+		}
+	}
+	&__img {
+		margin-bottom: 3.5rem;
+		max-height: 14.5rem;
+		@include media-breakpoint-down(lg) {
+			max-height: 12rem;
+		}
+	}
+	&__info {
+		color: lighten($color-dark, 20);
+		margin: 1rem auto;
+	}
+	&__price {
+		font-weight: 700;
+		font-size: 3.2rem;
+		margin-bottom: 2rem;
+		sup {
+			text-transform: uppercase;
+			font-weight: 300;
+		}
+	}
+}

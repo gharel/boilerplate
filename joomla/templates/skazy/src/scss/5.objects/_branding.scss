@@ -1,0 +1,69 @@
+.o-branding {
+	background: linear-gradient(to bottom, $color-gradient-top 0%, transparentize($color-gradient-bottom, .5) 100%);
+	position: relative;
+	border-bottom: .1rem solid $color-neutral;
+	& > .container {
+		background: url("../img/plane-branding.png") no-repeat right bottom;
+		background-size: 82.5%;
+		position: relative;
+		@include media-breakpoint-down(md) {
+			background-size: 75%;
+		}
+		@include media-breakpoint-down(sm) {
+			background-size: 65%;
+		}
+	}
+	&::before {
+		content: "";
+		height: .6rem;
+		display: block;
+		background: url("../img/pattern-branding.png") repeat-x;
+		top: .1rem;
+		left: 0;
+		right: 0;
+		position: absolute;
+	}
+	&__baseline {
+		color: $color-light;
+		font-family: Rubik, sans-serif;
+		text-transform: uppercase;
+		line-height: 1.1;
+		vertical-align: top;
+		margin: 6rem 0 0 20rem;
+		display: inline-block;
+		@include media-breakpoint-down(lg) {
+			margin: 8rem 0 0 15rem;
+			font-size: 1.2rem;
+		}
+		@include media-breakpoint-down(md) {
+			margin: 10rem 0 0 8rem;
+		}
+		@include media-breakpoint-down(sm) {
+			display: none;
+		}
+	}
+	&__part1 {
+		font-size: 3.2rem;
+	}
+	&__part2 {
+		font-size: 3rem;
+	}
+	&__part1::after,
+	&__part2::before {
+		vertical-align: middle;
+		width: 8.25rem;
+		display: inline-block;
+		content: "";
+		height: .1rem;
+		background: $color-light;
+		margin-top: -.4rem;
+	}
+}
+
+.o-logo {
+	padding: 9rem 0;
+	display: inline-block;
+	@include media-breakpoint-down(md) {
+		padding: 7rem 0;
+	}
+}

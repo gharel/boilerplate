@@ -1,0 +1,20 @@
+.o-lang {
+	$p: &;
+	text-align: right;
+	&__img {
+		vertical-align: baseline;
+	}
+	&__show {
+		color: $color-dark;
+		&::after {
+			content: none;
+		}
+		&:hover {
+			color: $color-secondary;
+			text-decoration: none;
+		}
+		#{$p}__svg {
+			transform: rotate(90deg);
+		}
+	}
+}

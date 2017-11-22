@@ -1,0 +1,70 @@
+.o-footer {
+	background: $color-secondary;
+	color: $color-light;
+	.container {
+		padding: 7rem 20rem 5rem 0;
+		background: url("../img/logo-air-caledonie-white.png") right center no-repeat;
+		@include media-breakpoint-down(sm) {
+			padding: 3rem 2rem 23rem;
+			background-position: center bottom 3rem;
+		}
+	}
+	&-menu {
+		$p: &;
+		&__list {
+			@include list-unstyled;
+			margin-bottom: 0;
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+			min-height: 10rem;
+			max-height: 24rem;
+			position: relative;
+			@include media-breakpoint-down(lg) {
+				max-height: 26rem;
+			}
+			@include media-breakpoint-down(md) {
+				max-height: 40rem;
+			}
+			@include media-breakpoint-down(sm) {
+				display: block;
+				max-height: none;
+			}
+		}
+		&__item {
+			line-height: 1;
+			position: relative;
+			z-index: 1;
+			width: 20%;
+			margin: 0 2.5% 2.4rem;
+			.item-107 {
+				min-height: 20rem;
+			}
+		}
+		&__link {
+			text-transform: uppercase;
+			font-weight: 500;
+			color: $color-light;
+			display: inline-block;
+			white-space: nowrap;
+			&:hover {
+				color: inherit;
+				text-decoration: underline;
+			}
+		}
+		&__sublist {
+			@include list-unstyled;
+			margin-top: .8rem;
+			#{$p}__item {
+				margin: 0;
+				width: auto;
+			}
+			#{$p}__link {
+				font-weight: 300;
+				text-transform: none;
+				margin-bottom: 0;
+				color: transparentize($color-light, .5);
+			}
+		}
+	}
+}

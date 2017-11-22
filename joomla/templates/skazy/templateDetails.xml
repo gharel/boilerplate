@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="template" client="site">
+    <name>Skazy</name>
+    <creationDate>2017-11-02</creationDate>
+    <author>Guillaume HAREL</author>
+    <authorEmail>guillaume.harel@skazy.nc</authorEmail>
+    <authorUrl>http://www.skazy.nc</authorUrl>
+    <copyright>Skazy 2017</copyright>
+    <license>GNU/GPL</license>
+    <version>1.0.0</version>
+    <description>Template for Air Calédonie</description>
+    <files>
+        <filename>favicon.ico</filename>
+        <filename>index.php</filename>
+        <filename>templateDetails.xml</filename>
+        <filename>template_preview.png</filename>
+        <filename>template_thumbnail.png</filename>
+        <folder>dist</folder>
+        <folder>html</folder>
+        <folder>language</folder>
+        <folder>src</folder>
+    </files>
+    <positions>
+        <position>nav</position>
+        <position>header</position>
+        <position>band</position>
+        <position>content-top</position>
+        <position>content-left</position>
+        <position>content-right</position>
+        <position>content</position>
+        <position>push-weather</position>
+        <position>aside-left</position>
+        <position>aside-right</position>
+        <position>content-bottom</position>
+        <position>footer</position>
+        <position>modal</position>
+        <position>debug</position>
+    </positions>
+    <languages folder="language">
+        <language tag="fr-FR">fr-FR/fr-FR.tpl_skazy.ini</language>
+        <language tag="fr-FR">fr-FR/fr-FR.tpl_skazy.sys.ini</language>
+        <language tag="en-GB">en-GB/fr-FR.tpl_skazy.ini</language>
+        <language tag="en-GB">en-GB/fr-FR.tpl_skazy.sys.ini</language>
+    </languages>
+</extension>

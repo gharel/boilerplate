@@ -1,0 +1,19 @@
+// Settings global
+
+$transition: .25s ease-in-out;
+$transition-long: .5s ease-in-out;
+$scrollbar-width: 17px;
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1340px
+) !default;
+$container-max-widths: (
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
+	xl: 1280px
+) !default;
+$grid-gutter-width: 30px !default;

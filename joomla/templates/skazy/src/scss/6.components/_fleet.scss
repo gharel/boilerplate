@@ -1,0 +1,129 @@
+.c-fleet {
+	margin-top: 7.5rem;
+	background: lighten($color-neutral, 15);
+	padding-top: 4.5rem;
+	padding-bottom: 4.5rem;
+	font-family: Rubik, sans-serif;
+	&__row {
+		margin: 2rem 0 4rem;
+		align-items: flex-end;
+	}
+	&__title {
+		font-size: 3rem;
+		font-weight: 300;
+		display: flex;
+		&::after {
+			background: transparentize(lighten($color-dark, 20), .5);
+			content: "";
+			display: inline-block;
+			flex: auto;
+			flex-grow: 1;
+			height: .1rem;
+			align-self: center;
+			margin-left: .75rem;
+		}
+	}
+	&__more {
+		margin-top: 2.5rem;
+	}
+	&__plane {
+		text-align: center;
+		margin-top: 2rem;
+		img {
+			@include media-breakpoint-down(md) {
+				width: 80%;
+			}
+		}
+		&-infos {
+			&::before,
+			&::after {
+				height: 6rem;
+				width: 6rem;
+				display: inline-block;
+				content: "";
+				border: .1rem solid $color-neutral;
+				vertical-align: 1rem;
+				border-top: 0;
+				@include media-breakpoint-down(md) {
+					height: 4rem;
+					width: 2.5rem;
+				}
+			}
+			&::before {
+				border-right: 0;
+				margin-right: 2rem;
+			}
+			&::after {
+				border-left: 0;
+				margin-left: 2rem;
+			}
+		}
+		&-number {
+			font-size: 7.5rem;
+			@include media-breakpoint-down(md) {
+				font-size: 5rem;
+			}
+		}
+		&-name {
+			font-size: 3rem;
+			@include media-breakpoint-down(md) {
+				font-size: 2.2rem;
+			}
+		}
+	}
+	&__figure {
+		&-list {
+			@include list-unstyled;
+			margin: 4rem 0 2.5rem;
+		}
+		&-item {
+			margin-top: 3rem;
+			text-align: center;
+			color: darken($color-neutral, 20);
+			.o-svg {
+				font-size: 9.6rem;
+				display: block;
+				margin: 0 auto 1.5rem;
+			}
+			& + & {
+				position: relative;
+				&::before {
+					content: "";
+					display: block;
+					height: 50%;
+					background: transparentize(lighten($color-dark, 20), .5);
+					width: .1rem;
+					position: absolute;
+					left: 0;
+					top: 40%;
+					@include media-breakpoint-down(md) {
+						content: none;
+					}
+				}
+			}
+			@include media-breakpoint-down(md) {
+				&:nth-child(3) {
+					&::before {
+						content: none;
+					}
+				}
+			}
+		}
+	}
+	&__number {
+		color: $color-primary;
+		display: block;
+		font-size: 7.5rem;
+		font-weight: 700;
+		@include media-breakpoint-down(lg) {
+			font-size: 5rem;
+		}
+	}
+	&__text {
+		padding: 0 12%;
+		display: inline-block;
+		strong {
+			color: $color-primary;
+		}
+	}
+}
