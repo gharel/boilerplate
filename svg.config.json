@@ -1,0 +1,17 @@
+{
+	"dest": "httpdocs/templates/skazy/dist/svg/",
+	"log": "info",
+	"shape": {
+		"spacing": {
+			"padding": 1
+		}
+	},
+	"mode": {
+		"symbol": {
+			"dest": ".",
+			"sprite": "sprite",
+			"bust": false,
+			"inline": true
+		}
+	}
+}
