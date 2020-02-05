@@ -68,7 +68,7 @@
 		"browser-sync": "^2.24.6",
 		"clean-css-cli": "^4.1.10",
 		"csscomb": "^4.2.0",
-		"eslint": "^4.9.0",
+		"eslint": "^4.18.2",
 		"eslint-plugin-compat": "^2.0.1",
 		"htmllint-cli": "0.0.6",
 		"imagemin": "^5.3.1",
