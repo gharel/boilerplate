@@ -1,0 +1,11 @@
+input[type="file"][name^="Filedata"] { // stylelint-disable-line selector-no-qualifying-type
+	cursor: pointer;
+}
+
+@include media-breakpoint-down(md) {
+	.js-search-open-mob > button,
+	.js-search-open-mob > input,
+	.js-search-open-mob > a {
+		pointer-events: none;
+	}
+}

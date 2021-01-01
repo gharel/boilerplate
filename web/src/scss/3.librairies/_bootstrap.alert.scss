@@ -1,0 +1,109 @@
+.alert {
+	$p: &;
+	padding: 20px;
+	font-size: 1.5rem;
+
+	&--maintenance {
+		position: fixed;
+		z-index: $zindex-maintenance;
+		width: 100%;
+		padding: 15px 30px;
+		margin-bottom: 0;
+		border: 0;
+		border-radius: 0;
+		@include media-breakpoint-down(md) {
+			padding: 12px 20px;
+		}
+	}
+
+	&-warning {
+		color: darken($color-bs-yellow, 54);
+		background-color: $color-bs-yellow;
+		border-color: $color-bs-yellow;
+	}
+
+	&-danger {
+		color: darken($color-bs-red, 54);
+		background-color: $color-bs-red;
+		border-color: $color-bs-red;
+
+		p {
+			color: $color-white;
+		}
+	}
+
+	&-bci {
+		color: $color-white;
+		background-color: $color-blue;
+		border-color: $color-blue;
+	}
+
+	&-heading {
+		margin-bottom: 20px;
+	}
+
+	&-ico {
+		margin-right: 5px;
+		font-size: 2rem;
+		vertical-align: -.35rem;
+	}
+
+	&-dismissible {
+		display: inline-flex;
+		padding: 0;
+		font-weight: 700;
+		color: $color-blue;
+		background: $color-white;
+		border: $border-default;
+		border-radius: $border-radius;
+
+		#{$p}-ico {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-width: 50px;
+			margin: -1px;
+			line-height: 48px;
+			color: $color-white;
+			text-align: center;
+			border-radius: $border-radius;
+		}
+
+		&#{$p}-warning {
+			#{$p}-ico {
+				background: $color-red;
+			}
+		}
+
+		#{$p}-content {
+			padding: 13px 0 13px 16px;
+			margin-bottom: 0;
+		}
+
+		#{$p}-important {
+			text-decoration: underline;
+
+			.no-touch &:hover {
+				text-decoration: none;
+			}
+		}
+
+		#{$p}-close {
+			padding: 14px 20px;
+			font-size: 2rem;
+			font-weight: 400;
+			line-height: 1;
+			color: $color-grey;
+			text-decoration: none;
+
+			.no-touch &:hover {
+				color: $color-blue;
+				text-decoration: none;
+			}
+		}
+	}
+
+	p:last-child {
+		margin-bottom: 0;
+	}
+}

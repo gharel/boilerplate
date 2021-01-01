@@ -1,0 +1,192 @@
+@include ico {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	speak: none;
+	line-height: 1;
+	color: inherit;
+	text-transform: none;
+	vertical-align: -.2rem;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	&::before {
+		display: inline-block;
+		font-family: icons, sans-serif;
+		font-style: normal;
+		font-weight: 400;
+		font-variant: normal;
+
+		/* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+		text-decoration: none;
+		text-transform: none;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	.no-touch &:hover {
+		text-decoration: none;
+	}
+
+	span + & {
+		&.ico-arrow-down {
+			margin-left: 8px;
+		}
+	}
+}
+
+.ico-minus {
+	display: inline-block;
+	width: 14px;
+	height: 2px;
+	vertical-align: middle;
+	background: $color-white;
+}
+
+.ico-arrow {
+	$p: &;
+
+	&-down {
+		font-size: .6rem;
+		vertical-align: .1em;
+	}
+
+	&-left {
+		@extend #{$p}-down;
+		display: inline-block;
+		vertical-align: .3em;
+		transform: rotate(-90deg);
+	}
+
+	&-right {
+		@extend #{$p}-down;
+		display: inline-block;
+		vertical-align: .3em;
+		transform: rotate(90deg);
+	}
+
+	&-up {
+		@extend #{$p}-down;
+		display: inline-block;
+		transform: rotate(180deg);
+	}
+}
+
+.ico-menu-account::before {
+	transform: scale(.75);
+}
+
+.ico-urgence::before {
+	transform: scale(.9);
+}
+
+.ico-watch::before {
+	transform: scale(.81);
+}
+
+.ico-telecharger-operations::before {
+	transform: scale(.9);
+}
+
+.ico-back::before {
+	transform: scale(.81);
+}
+
+.ico-reply::before {
+	transform: scale(1.1);
+}
+
+.ico-checkmark::before {
+	transform: scale(1.3);
+}
+
+.ico-edit::before {
+	transform: scale(.9);
+}
+
+.ico-close::before {
+	transform: scale(.9);
+}
+
+.ico-email-unread {
+	font-size: 78%;
+	@include media-breakpoint-down(md) {
+		display: block;
+		padding-top: .4rem;
+	}
+}
+
+.ico-email-read::before {
+	transform: scale(1.05);
+}
+
+.ico-alert {
+	color: $color-red;
+}
+
+.ico-locked {
+	color: $color-locked;
+
+	.no-touch &:hover {
+		color: $color-locked;
+	}
+}
+
+.ico-move-to::before {
+	position: relative;
+	right: -1px;
+}
+
+.ico-help {
+	position: relative;
+	margin-right: -2rem;
+	font-size: 1.6rem;
+
+	#datefin & { // stylelint-disable-line selector-max-id
+		position: absolute;
+		margin-top: -.2rem;
+		margin-left: .4rem;
+	}
+}
+
+.ico-check {
+	&--formule {
+		display: flex;
+		align-items: flex-start;
+		padding-bottom: 15px;
+		font-size: 1.6rem;
+		line-height: 1.9rem;
+
+		&::before {
+			padding: 3px 12.5px 0 0;
+			font-size: 1.3rem;
+			color: $color-blue-light;
+			content: $ico-checkbox;
+		}
+	}
+}
+
+.upload {
+	.ico-trash {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 15px 0;
+		margin-right: 20px;
+		line-height: initial;
+		border-bottom: $border-default;
+
+		&:last-of-type {
+			border-bottom: 0;
+		}
+
+		&::before {
+			content: none;
+		}
+
+		&::after {
+			color: $color-red;
+			content: $ico-trash;
+		}
+	}
+}
+
+@import "icons-generated";

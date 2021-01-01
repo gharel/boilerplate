@@ -1,0 +1,13 @@
+.badge {
+	&-tertiary {
+		font-size: 1.2rem;
+		font-weight: 400;
+		background: transparentize($color-grey, .75);
+		border-radius: $border-radius;
+
+		span {
+			display: inline-block;
+			padding: 2px 4.5px;
+		}
+	}
+}

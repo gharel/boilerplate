@@ -1,0 +1,346 @@
+@font-face {
+	font-family: "icons";
+	src: url('../../medias/fonts/icons.eot');
+	src: url('../../medias/fonts/icons.eot?#iefix') format('eot'),
+		url('../../medias/fonts/icons.woff2') format('woff2'),
+		url('../../medias/fonts/icons.woff') format('woff'),
+		url('../../medias/fonts/icons.ttf') format('truetype'),
+		url('../../medias/fonts/icons.svg#icons') format('svg');
+}
+
+.ico:before {
+	font-family: "icons";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	/* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+	text-decoration: none;
+	text-transform: none;
+}
+
+
+.ico-account:before {
+	content: "\E001";
+}
+
+.ico-alert:before {
+	content: "\E002";
+}
+
+.ico-arrow-back:before {
+	content: "\E003";
+}
+
+.ico-arrow-down:before {
+	content: "\E004";
+}
+
+.ico-assurance-vie:before {
+	content: "\E005";
+}
+
+.ico-attachment:before {
+	content: "\E006";
+}
+
+.ico-back:before {
+	content: "\E007";
+}
+
+.ico-banian:before {
+	content: "\E008";
+}
+
+.ico-bci-vip:before {
+	content: "\E009";
+}
+
+.ico-bell:before {
+	content: "\E00A";
+}
+
+.ico-bill:before {
+	content: "\E00B";
+}
+
+.ico-building:before {
+	content: "\E00C";
+}
+
+.ico-calendar:before {
+	content: "\E00D";
+}
+
+.ico-change:before {
+	content: "\E00E";
+}
+
+.ico-checkbox-rounded:before {
+	content: "\E00F";
+}
+
+.ico-checkbox:before {
+	content: "\E010";
+}
+
+.ico-checkmark:before {
+	content: "\E011";
+}
+
+.ico-cheque-commande:before {
+	content: "\E012";
+}
+
+.ico-clock:before {
+	content: "\E013";
+}
+
+.ico-close-thin:before {
+	content: "\E014";
+}
+
+.ico-close:before {
+	content: "\E015";
+}
+
+.ico-comment-none:before {
+	content: "\E016";
+}
+
+.ico-comment-ok:before {
+	content: "\E017";
+}
+
+.ico-compte:before {
+	content: "\E018";
+}
+
+.ico-dashboard:before {
+	content: "\E019";
+}
+
+.ico-depot:before {
+	content: "\E01A";
+}
+
+.ico-document:before {
+	content: "\E01B";
+}
+
+.ico-duplicate:before {
+	content: "\E01C";
+}
+
+.ico-edit:before {
+	content: "\E01D";
+}
+
+.ico-email-read:before {
+	content: "\E01E";
+}
+
+.ico-email-unread:before {
+	content: "\E01F";
+}
+
+.ico-epargne:before {
+	content: "\E020";
+}
+
+.ico-erase:before {
+	content: "\E021";
+}
+
+.ico-fav-full:before {
+	content: "\E022";
+}
+
+.ico-fav:before {
+	content: "\E023";
+}
+
+.ico-file-add:before {
+	content: "\E024";
+}
+
+.ico-gerer-virement:before {
+	content: "\E025";
+}
+
+.ico-help:before {
+	content: "\E026";
+}
+
+.ico-information:before {
+	content: "\E027";
+}
+
+.ico-international:before {
+	content: "\E028";
+}
+
+.ico-les-agences:before {
+	content: "\E029";
+}
+
+.ico-list:before {
+	content: "\E02A";
+}
+
+.ico-login-add:before {
+	content: "\E02B";
+}
+
+.ico-login:before {
+	content: "\E02C";
+}
+
+.ico-logout:before {
+	content: "\E02D";
+}
+
+.ico-menu-account:before {
+	content: "\E02E";
+}
+
+.ico-menu-dashboard:before {
+	content: "\E02F";
+}
+
+.ico-menu-document:before {
+	content: "\E030";
+}
+
+.ico-menu-operations:before {
+	content: "\E031";
+}
+
+.ico-menu-services:before {
+	content: "\E032";
+}
+
+.ico-messenger:before {
+	content: "\E033";
+}
+
+.ico-minus-boxed:before {
+	content: "\E034";
+}
+
+.ico-more:before {
+	content: "\E035";
+}
+
+.ico-move-to:before {
+	content: "\E036";
+}
+
+.ico-multi-add:before {
+	content: "\E037";
+}
+
+.ico-multi:before {
+	content: "\E038";
+}
+
+.ico-operations:before {
+	content: "\E039";
+}
+
+.ico-password:before {
+	content: "\E03A";
+}
+
+.ico-pdf:before {
+	content: "\E03B";
+}
+
+.ico-phone:before {
+	content: "\E03C";
+}
+
+.ico-plus-boxed:before {
+	content: "\E03D";
+}
+
+.ico-pret:before {
+	content: "\E03E";
+}
+
+.ico-releve:before {
+	content: "\E03F";
+}
+
+.ico-reply:before {
+	content: "\E040";
+}
+
+.ico-rib:before {
+	content: "\E041";
+}
+
+.ico-save:before {
+	content: "\E042";
+}
+
+.ico-search:before {
+	content: "\E043";
+}
+
+.ico-securite-internet:before {
+	content: "\E044";
+}
+
+.ico-services:before {
+	content: "\E045";
+}
+
+.ico-settings:before {
+	content: "\E046";
+}
+
+.ico-signer:before {
+	content: "\E047";
+}
+
+.ico-switch:before {
+	content: "\E048";
+}
+
+.ico-telecharger-operations:before {
+	content: "\E049";
+}
+
+.ico-thunder:before {
+	content: "\E04A";
+}
+
+.ico-transfer:before {
+	content: "\E04B";
+}
+
+.ico-trash:before {
+	content: "\E04C";
+}
+
+.ico-upload:before {
+	content: "\E04D";
+}
+
+.ico-urgence:before {
+	content: "\E04E";
+}
+
+.ico-video:before {
+	content: "\E04F";
+}
+
+.ico-warning:before {
+	content: "\E050";
+}
+
+.ico-watch:before {
+	content: "\E051";
+}

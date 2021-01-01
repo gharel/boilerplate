@@ -1,0 +1,60 @@
+/* stylelint-disable selector-no-qualifying-type */
+button,
+input[type="button"] {
+	min-width: 0 !important; // stylelint-disable-line declaration-no-important
+	//@extend .btn;
+	//@extend .btn-primary;
+	white-space: normal;
+	border-style: solid !important; // stylelint-disable-line declaration-no-important
+	border-width: 1px !important; // stylelint-disable-line declaration-no-important
+	.no-touch &:hover {
+		border-style: solid !important; // stylelint-disable-line declaration-no-important
+		border-width: 1px !important; // stylelint-disable-line declaration-no-important
+	}
+}
+
+a,
+button,
+input[type="button"] {
+	&.btn-download {
+		font-weight: 500;
+		color: $color-blue-light;
+		background: none;
+		border-style: none !important; // stylelint-disable-line declaration-no-important
+		&:focus {
+			border: none;
+		}
+
+		.no-touch &:hover {
+			text-decoration: none;
+		}
+	}
+
+
+	&.u-bg-blue-gradient,
+	&.btn-gradient--blue {
+		color: $color-white;
+		background: $gradient-blue;
+		border-color: transparent;
+		transition: none;
+
+		strong {
+			font-weight: 500;
+		}
+
+		.no-touch &:not(.is-active):not(:hover) {
+			strong {
+				font-weight: 400;
+			}
+		}
+
+		.no-touch &:hover {
+			color: $color-white;
+			background: darken($color-blue-light, 10);
+		}
+		&.is-active {
+			color: $color-white;
+		}
+	}
+}
+/* stylelint-enable */

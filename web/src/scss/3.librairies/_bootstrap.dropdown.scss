@@ -1,0 +1,149 @@
+.dropdown {
+	$p: &;
+
+	&--ico {
+		position: relative;
+		display: inline-block;
+		padding: 0;
+		margin: 0 -.5rem;
+		text-align: center;
+		text-decoration: none;
+		vertical-align: middle;
+		cursor: pointer;
+		background: none;
+		border: 0;
+
+		&.show {
+			#{$p}-toggle {
+				color: $color-blue-light;
+				transform: rotate(90deg);
+			}
+		}
+
+		#{$p}-toggle {
+			display: block;
+			width: 2.5rem;
+			height: 2.5rem;
+			margin: auto;
+			font-size: 2.5rem;
+			transition: transform .1s linear;
+
+			&::after {
+				display: none;
+			}
+		}
+	}
+
+	&--select {
+		&.show {
+			#{$p}-toggle {
+				color: $color-white;
+				background: $color-blue-dark;
+				border-color: $color-blue-dark;
+			}
+		}
+
+		#{$p}-toggle {
+			padding: 7px 15px;
+			font-size: 2rem;
+			font-weight: 500;
+			color: $color-white;
+			white-space: nowrap;
+			border-color: $color-white;
+			@include media-breakpoint-down(md) {
+				font-size: 1.5rem;
+			}
+
+			&::after {
+				width: auto;
+				height: auto;
+				margin-left: 15px;
+				font-family: icons, sans-serif;
+				font-size: .6rem;
+				vertical-align: middle;
+				content: $ico-arrow-down; // see _icons.scss .ico-arrow-down if change
+				border: 0;
+			}
+
+			.no-touch &:hover {
+				color: $color-white;
+				background: $color-blue-dark;
+				border-color: $color-blue-dark;
+				@include media-breakpoint-down(md) {
+					border-color: $color-blue-light;
+				}
+			}
+		}
+
+		#{$p}-menu {
+			margin-top: 0;
+			border: 0;
+		}
+
+		#{$p}-item {
+			font-size: 1.4rem;
+			color: $color-blue;
+
+			&.active {
+				color: $color-blue-light;
+				background: none;
+			}
+		}
+	}
+
+	&-toggle {
+		cursor: pointer;
+	}
+
+	&-menu {
+		padding: 1.2rem 0;
+		border-radius: $border-radius;
+		box-shadow: 0 8px 10px 0 transparentize($color-black, .85);
+		.o-heading__buttons & {
+			@include media-breakpoint-down(md) {
+				top: 4rem !important; // stylelint-disable-line declaration-no-important
+				width: calc(100vw - 4rem);
+			}
+		}
+	}
+
+	&-item {
+		padding: .6rem 1.6rem;
+		font-size: 1.5rem;
+
+		.no-touch &:hover {
+			background: $color-grey-light;
+		}
+	}
+
+	&-item-text {
+		margin-top: 30px;
+		font-size: 1.2rem;
+		font-weight: 500;
+		color: $color-grey;
+		text-transform: uppercase;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	&-ico {
+		display: inline-block;
+		width: 25px;
+		margin-right: 1.2rem;
+		font-size: 2rem;
+		color: $color-blue-light !important; // stylelint-disable-line declaration-no-important
+		text-align: center;
+	}
+
+	&-divider {
+		margin-right: 15px;
+		margin-left: 15px;
+	}
+
+	&-text {
+		color: $color-blue-dark;
+	}
+}
+

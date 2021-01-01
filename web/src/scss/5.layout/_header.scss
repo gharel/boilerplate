@@ -1,0 +1,357 @@
+.l-header {
+	$width-profil: 320px;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: $zindex-header;
+	display: flex;
+	flex: 0 0 auto;
+	flex-flow: row wrap;
+	align-items: center;
+	height: $height-header;
+	background-color: $white;
+	@include media-breakpoint-down(md) {
+		height: $height-header-mob;
+		background-color: $color-blue-dark;
+	}
+
+	.page-cycle & {
+		position: static;
+		z-index: auto;
+		height: auto;
+		background: none;
+		@include media-breakpoint-down(sm) {
+			background-color: $color-blue-dark;
+		}
+	}
+
+	.page-document &,
+	.page-double-signature-signer-virement &,
+	.page-double-signature-signer-valid &,
+	.page-double-signature-list &,
+	.page-new-beneficiaire &,
+	.page-beneficiaire-detail &,
+	.page-virements-permanents &,
+	.page-virement-succes &,
+	.page-virement-signer-pass &,
+	.page-virement-signer &,
+	.page-virement-permanent-signer-pass &,
+	.page-virement-permanent-signer &,
+	.page-virement-passes &,
+	.page-virement-multiple-signer &,
+	.page-virement-en-cours-vide &,
+	.page-virement-en-cours-dupliquer &,
+	.page-virement-en-cours &,
+	.page-gestion-virement &,
+	.page-detail-compte &,
+	.page-operations-venir &,
+	.page-encours-cb &,
+	.page-detail-pret &,
+	.page-detail-depot &,
+	.page-detail-contrat &,
+	.page-beneficiaire &,
+	.page-new-beneficiaire-confirm &,
+	.page-new-beneficiaire-refuse &,
+	.page-new-beneficiaire-valid &,
+	.page-liste-beneficiaire-detail &,
+	.page-beneficiaire-nc &,
+	.page-new-virement &,
+	.page-virement-multiple &,
+	.page-liste-beneficiaire &,
+	.page-liste-beneficiaire-confirmation &,
+	.page-liste-beneficiaire-validation &,
+	.page-liste-beneficiaire-creer &,
+	.page-tracabilite &,
+	.page-telephone &,
+	.page-profil &,
+	.page-recherche-avancee &,
+	.page-contacts &,
+	.page-securite &,
+	.page-commande-chequier &,
+	.page-formule &,
+	.page-souscrire-releve &,
+	.page-souscrire-arobase &,
+	.page-devise &,
+	.page-new-message &,
+	.page-messagerie &,
+	.page-old-formule &,
+	.page-paiement-facture &,
+	.page-paiement-facture-form &,
+	.page-virement-inter &,
+	.page-autre-document &,
+	.page-releves-frais &,
+	.page-change-password &,
+	.page-autres-banques &,
+	.page-acces &,
+	.page-change-email &,
+	.page-change-adresse &,
+	.page-gestion-transfert-fichier-a-signer &,
+	.page-gestion-transfert-fichier-en-cours &,
+	.page-gestion-transfert-fichier-remise &,
+	.page-transfert-fichier & {
+		@include media-breakpoint-down(md) {
+			display: none;
+		}
+	}
+
+	&__logo {
+		flex: 0 0 $width-menu;
+		background: $color-blue;
+		@include media-breakpoint-down(md) {
+			flex: 0 0 auto;
+			background-color: $color-blue-dark;
+		}
+
+		.page-cycle & {
+			background: none;
+		}
+
+		&-link {
+			display: block;
+			padding: 25px;
+			@include media-breakpoint-down(md) {
+				padding: 18px 0 18px 20px;
+			}
+
+			.page-cycle & {
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: $zindex-logo;
+				@include media-breakpoint-down(sm) {
+					position: static;
+				}
+			}
+			&:focus {
+				outline: none;
+			}
+
+			.no-touch &:hover {
+				text-decoration: none;
+			}
+		}
+
+		&-image {
+			height: 50px;
+			@include media-breakpoint-down(md) {
+				height: 40px;
+			}
+		}
+	}
+
+	&__nav {
+		display: flex;
+		flex: 0 0 calc(100% - #{$width-menu});
+		align-items: center;
+		height: 100%;
+		border-bottom: 1px solid transparentize($color-grey, .8);
+		@include media-breakpoint-down(md) {
+			flex: 1 0 auto;
+			border-bottom: 0;
+		}
+		@include ie {
+			flex: 1 1 auto;
+		}
+	}
+
+	&__intro {
+		flex: 0 1 auto;
+		align-self: flex-end;
+		margin: 10px 30px;
+		@include media-breakpoint-down(md) {
+			display: none;
+		}
+
+		&-name {
+			margin: 0 0 2px;
+			font-size: 2rem;
+			font-weight: 700;
+			color: $color-blue;
+		}
+
+		&-date {
+			font-size: 1.4rem;
+			color: $color-grey;
+		}
+	}
+
+	&__category {
+		$p: &;
+		flex: 1 0 auto;
+		text-align: center;
+		@include media-breakpoint-down(md) {
+			display: none;
+		}
+
+		&-list {
+			display: inline-flex;
+			padding: 5px;
+			margin: 0;
+			list-style: none;
+			background: transparentize($color-grey, .95);
+			border-radius: $border-radius;
+		}
+
+		&-item {
+			position: relative;
+			font-size: 1.5rem;
+			font-weight: 500;
+			color: $color-grey;
+			transition: color .2s linear;
+
+			&.is-active,
+			.no-touch &:hover {
+				color: $color-blue-light;
+
+				#{$p}-link {
+					color: inherit;
+					text-decoration: none;
+				}
+			}
+
+			&.is-active {
+				background: $color-white;
+
+				#{$p}-link {
+					box-shadow: 0 4px 9px 0 rgba(0, 0, 0, .08);
+				}
+			}
+		}
+
+		&-link {
+			display: block;
+			padding: 10px 16px;
+			color: inherit;
+			text-align: center;
+			border-radius: $border-radius;
+		}
+
+		&-text {
+			color: inherit;
+		}
+
+		&-ico {
+			color: inherit;
+		}
+
+		.badge {
+			position: absolute;
+			top: 5px;
+			right: 10px;
+		}
+	}
+
+	&__menu {
+		$p: &;
+		flex: 1 0 auto;
+
+		@include ie {
+			margin-right: 20px;
+		}
+
+		&-list {
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: flex-end;
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+
+		&-item {
+			position: relative;
+			flex: 0 0 auto;
+			font-size: 1.5rem;
+			font-weight: 500;
+			color: $color-grey;
+			transition: color .2s linear;
+			@include media-breakpoint-down(md) {
+				color: $color-white;
+			}
+
+			&.is-active,
+			&:hover {
+				color: $color-blue-light;
+
+				#{$p}-link {
+					color: inherit;
+					text-decoration: none;
+				}
+			}
+
+			&.is-active {
+				#{$p}-text {
+					color: $color-blue-dark;
+				}
+			}
+
+			&.has-boxing {
+				a + div {
+					position: absolute;
+					top: calc(100% - 5px);
+					left: calc(50% - #{$width-profil/2});
+					z-index: $zindex-tooltip;
+					width: 100vh;
+					max-width: 340px;
+					max-height: 0;
+					overflow: hidden;
+					transition: max-height .4s;
+					@include media-breakpoint-down(lg) {
+						transform: translateX(-33.3%);
+					}
+				}
+
+				.no-touch &:hover a + div {
+					max-height: 1000px;
+				}
+			}
+		}
+
+		&-link {
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+			padding: 10px 16px;
+			color: inherit;
+			border-radius: $border-radius;
+			@include media-breakpoint-down(md) {
+				padding: 10px 20px;
+			}
+		}
+
+		&-text {
+			color: inherit;
+			@include media-breakpoint-down(lg) {
+				display: none;
+			}
+		}
+
+		&-ico {
+			font-size: 1.75rem;
+			color: inherit;
+			@include media-breakpoint-up(xl) {
+				margin-right: 15px;
+			}
+			@include media-breakpoint-down(md) {
+				font-size: 2rem;
+			}
+
+			&--right {
+				@include media-breakpoint-down(lg) {
+					display: none;
+				}
+			}
+		}
+
+		.badge {
+			position: absolute;
+			top: 5px;
+			right: 100%;
+			margin-right: -42px;
+			@include media-breakpoint-down(md) {
+				margin-right: -48px;
+			}
+		}
+	}
+}

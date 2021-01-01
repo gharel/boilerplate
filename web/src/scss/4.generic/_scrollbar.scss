@@ -1,0 +1,20 @@
+.scrollbar-obtrusive ::-webkit-scrollbar {
+	width: $size-scrollbar;
+	height: $size-scrollbar;
+}
+
+::-webkit-scrollbar-track {
+	background: transparentize($color-scrollbar, $opacity-track-scrollbar);
+	border-radius: $border-radius-scrollbar;
+}
+
+::-webkit-scrollbar-thumb {
+	background: transparentize($color-scrollbar, $opacity-thumb-scrollbar);
+	border-radius: $border-radius-scrollbar;
+}
+
+// for Firefox
+* {
+	scrollbar-width: thin; // stylelint-disable-line property-no-unknown
+	scrollbar-color: transparentize($color-scrollbar, $opacity-thumb-scrollbar) transparentize($color-scrollbar, $opacity-track-scrollbar); // stylelint-disable-line property-no-unknown
+}

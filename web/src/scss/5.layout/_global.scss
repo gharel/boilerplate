@@ -1,0 +1,163 @@
+.l-page {
+	display: flex;
+	flex-flow: column nowrap;
+	height: 100vh;
+	@include media-breakpoint-down(md) {
+		height: auto;
+		min-height: 100vh;
+	}
+}
+
+.l-content {
+	display: flex;
+	flex: 1 1 auto;
+	height: 100%;
+	margin-top: $height-header;
+	@include media-breakpoint-down(md) {
+		margin-top: $height-header-mob;
+	}
+
+	.page-cycle & {
+		margin-top: 0;
+		background: $color-blue-dark;
+
+		.container {
+			padding-top: 30px;
+			padding-bottom: 30px;
+			background: $color-blue-dark;
+		}
+	}
+
+	.page-document &,
+	.page-double-signature-signer-virement &,
+	.page-double-signature-signer-valid &,
+	.page-double-signature-list &,
+	.page-new-beneficiaire &,
+	.page-beneficiaire-detail &,
+	.page-virements-permanents &,
+	.page-virement-succes &,
+	.page-virement-signer-pass &,
+	.page-virement-signer &,
+	.page-virement-permanent-signer-pass &,
+	.page-virement-permanent-signer &,
+	.page-virement-passes &,
+	.page-virement-multiple-signer &,
+	.page-virement-en-cours-vide &,
+	.page-virement-en-cours-dupliquer &,
+	.page-virement-en-cours &,
+	.page-gestion-virement &,
+	.page-detail-compte &,
+	.page-operations-venir &,
+	.page-encours-cb &,
+	.page-detail-pret &,
+	.page-detail-depot &,
+	.page-detail-contrat &,
+	.page-beneficiaire &,
+	.page-new-beneficiaire-confirm &,
+	.page-new-beneficiaire-valid &,
+	.page-new-beneficiaire-refuse &,
+	.page-liste-beneficiaire-detail &,
+	.page-beneficiaire-nc &,
+	.page-new-virement &,
+	.page-virement-multiple &,
+	.page-liste-beneficiaire &,
+	.page-liste-beneficiaire-confirmation &,
+	.page-liste-beneficiaire-validation &,
+	.page-liste-beneficiaire-creer &,
+	.page-tracabilite &,
+	.page-telephone &,
+	.page-profil &,
+	.page-recherche-avancee &,
+	.page-contacts &,
+	.page-securite &,
+	.page-commande-chequier &,
+	.page-formule &,
+	.page-souscrire-releve &,
+	.page-souscrire-arobase &,
+	.page-devise &,
+	.page-new-message &,
+	.page-messagerie &,
+	.page-old-formule &,
+	.page-paiement-facture &,
+	.page-paiement-facture-form &,
+	.page-virement-inter &,
+	.page-autre-document &,
+	.page-releves-frais &,
+	.page-change-password &,
+	.page-autres-banques &,
+	.page-acces &,
+	.page-change-email &,
+	.page-change-adresse &,
+	.page-gestion-transfert-fichier-a-signer &,
+	.page-gestion-transfert-fichier-en-cours &,
+	.page-gestion-transfert-fichier-remise &,
+	.page-transfert-fichier & {
+		@include media-breakpoint-down(md) {
+			margin-top: 0;
+		}
+	}
+}
+
+.page-new-virement,
+.page-virement-multiple,
+.page-liste-beneficiaire-validation,
+.page-virement-succes,
+.page-paiement-facture,
+.page-paiement-facture-form,
+.page-virement-inter,
+.page-menu-virement,
+.page-transfert-fichier {
+	.l-main {
+		background-color: $color-blue-dark;
+	}
+}
+
+.l-main {
+	position: relative;
+	flex: 1 1 auto;
+	min-height: calc(100vh - #{$height-header});
+	margin-left: $width-menu;
+	background: $color-lightest;
+	@include media-breakpoint-down(md) {
+		order: 1;
+		min-height: calc(100vh - (#{$height-header-mob}));
+		padding-bottom: $height-footer-mob;
+		margin-left: 0;
+		.page-cycle & {
+			padding-bottom: 0;
+		}
+	}
+
+	.page-cycle & {
+		z-index: $zindex-login;
+		min-height: 100vh;
+		margin-left: 0;
+		background: none;
+		@include media-breakpoint-down(sm) {
+			min-height: calc(100vh - #{$height-header-mob});
+		}
+	}
+
+	&__inner {
+		display: flex;
+		min-height: 100%;
+		background-color: $color-lightest;
+
+		.page-double-signature-signer-valid &,
+		.page-liste-beneficiaire-validation &,
+		.page-new-beneficiaire-valid & {
+			@include media-breakpoint-down(md) {
+				background-color: $color-blue-dark;
+			}
+		}
+	}
+
+	&__center {
+		display: flex;
+		align-items: center;
+		min-height: 100vh;
+		@include media-breakpoint-down(sm) {
+			min-height: calc(100vh - #{$height-header-mob});
+		}
+	}
+}

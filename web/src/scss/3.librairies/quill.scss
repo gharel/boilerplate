@@ -1,0 +1,28 @@
+.ql-toolbar.ql-snow {
+	margin-bottom: -1px;
+	border: $border-default;
+	border-top-left-radius: $border-radius;
+	border-top-right-radius: $border-radius;
+	button {
+		border: none !important; // stylelint-disable-line declaration-no-important
+		.no-touch &:hover  {
+			border: none !important; // stylelint-disable-line declaration-no-important
+		}
+	}
+}
+.ql-container {
+	min-height: 50px + (22px * 10) !important; // stylelint-disable-line declaration-no-important
+	font-family: Roboto, sans-serif;
+	font-size: 1.6rem;
+	line-height: 1.5;
+}
+.ql-editor {
+	position: absolute;
+	top: 1.3rem;
+	right: 2rem;
+	bottom: 1.3rem;
+	left: 2rem;
+	height: auto;
+	padding: 0;
+	line-height: 1.5;
+}

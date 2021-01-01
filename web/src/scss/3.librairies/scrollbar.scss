@@ -1,0 +1,34 @@
+.os {
+	$p: &;
+
+	&-scrollbar {
+		padding: 0 !important; // stylelint-disable-line declaration-no-important
+		border-radius: $border-radius-scrollbar;
+
+		#{$p}-theme-dark > & > &-track,
+		#{$p}-theme-light > & > &-track {
+			background-color: transparentize($color-scrollbar, $opacity-track-scrollbar) !important; // stylelint-disable-line declaration-no-important
+		}
+
+		#{$p}-theme-dark > & > &-track > &-handle,
+		#{$p}-theme-light > & > &-track > &-handle {
+			background-color: transparentize($color-scrollbar, $opacity-thumb-scrollbar) !important; // stylelint-disable-line declaration-no-important
+		}
+
+		&-horizontal {
+			#{$p}-theme-dark > &,
+			#{$p}-theme-light > & {
+				right: $size-scrollbar;
+				height: $size-scrollbar;
+			}
+		}
+
+		&-vertical {
+			#{$p}-theme-dark > &,
+			#{$p}-theme-light > & {
+				bottom: $size-scrollbar;
+				width: $size-scrollbar;
+			}
+		}
+	}
+}

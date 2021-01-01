@@ -1,0 +1,53 @@
+@import "1.settings/variables";
+@import "1.settings/bootstrap.variables";
+
+@import "2.tools/mixins";
+
+// loading distant libraries
+@import "3.librairies/libs";
+// override or initialize libraries
+@import "3.librairies/bootstrap";
+@import "3.librairies/datepicker";
+@import "3.librairies/monthpicker";
+@import "3.librairies/quill";
+@import "3.librairies/scrollbar";
+@import "3.librairies/select2";
+
+@import "4.generic/global";
+@import "4.generic/title";
+@import "4.generic/button";
+@import "4.generic/fonts";
+@import "4.generic/form";
+@import "4.generic/icons";
+@import "4.generic/link";
+@import "4.generic/scrollbar";
+@import "4.generic/table";
+
+@import "5.layout/global";
+@import "5.layout/header";
+@import "5.layout/menu";
+
+@import "6.objects/account";
+@import "6.objects/advertising";
+@import "6.objects/attachments";
+@import "6.objects/beneficiaire";
+@import "6.objects/boxing";
+@import "6.objects/card";
+@import "6.objects/chart";
+@import "6.objects/data";
+@import "6.objects/heading";
+@import "6.objects/help";
+@import "6.objects/loader";
+@import "6.objects/login";
+@import "6.objects/pagination";
+@import "6.objects/pricing";
+@import "6.objects/recap";
+@import "6.objects/remise";
+@import "6.objects/search";
+@import "6.objects/toggle";
+@import "6.objects/transfer";
+@import "6.objects/upload";
+
+@import "7.utilities/utils";
+@import "7.utilities/js";
+@import "7.utilities/hack";

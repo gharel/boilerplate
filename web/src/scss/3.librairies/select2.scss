@@ -1,0 +1,381 @@
+// Select2
+.select2 {
+	$select: &;
+	$size-arrow: 1rem;
+	$space-multiple: .5rem;
+
+	&-container,
+	&-container#{$select}-container--default,
+	&-container#{$select}-container--invert,
+	&-container#{$select}-container--bordered,
+	&-container#{$select}-container--full,
+	&-container#{$select}-container--sm {
+		#{$select}-selection {
+			position: relative;
+			height: auto;
+			border: $border-default;
+			border-radius: $border-radius;
+
+			&:focus {
+				border-color: $input-focus-border-color;
+				outline: 0;
+				@if $enable-shadows {
+					box-shadow: $input-box-shadow, $input-focus-box-shadow;
+				} @else {
+					box-shadow: $input-focus-box-shadow;
+				}
+			}
+
+			&__rendered {
+				box-sizing: border-box;
+				width: 100%;
+				padding: $input-btn-padding-y ($input-btn-padding-x * 2 + $size-arrow) $input-btn-padding-y $input-btn-padding-x !important; // stylelint-disable-line declaration-no-important
+				margin: 0;
+				font-size: $input-btn-font-size;
+				font-weight: 400;
+				line-height: 1.5 !important; // stylelint-disable-line declaration-no-important
+				color: $color-blue;
+				list-style: none;
+			}
+
+			&__arrow {
+				position: absolute;
+				top: 0;
+				right: 0;
+				display: flex;
+				align-items: center;
+				width: auto;
+				height: 100%;
+				padding: 0 $input-btn-padding-x;
+
+				&::before {
+					display: inline-block;
+					font-family: icons, sans-serif;
+					font-size: .6rem;
+					color: $color-grey;
+					text-align: center;
+					vertical-align: -.2rem;
+					content: $ico-arrow-down; // see _icons.scss .ico-arrow-down if change
+				}
+
+				b {
+					display: none;
+				}
+			}
+
+			&--multiple {
+				cursor: pointer;
+
+				#{$select}-selection {
+					&__rendered {
+						position: relative;
+						display: block;
+						padding: ($input-btn-padding-y - $space-multiple) (($input-btn-padding-x * 2 + $size-arrow) - $space-multiple) $input-btn-padding-y $input-btn-padding-x !important; // stylelint-disable-line declaration-no-important
+						white-space: normal !important; // stylelint-disable-line declaration-no-important
+						&::after {
+							position: absolute;
+							top: $input-btn-padding-x;
+							right: $input-btn-padding-y + $size-arrow / 2;
+							display: inline-block;
+							font-family: icons, sans-serif;
+							font-size: .6rem;
+							color: $color-grey;
+							text-align: center;
+							vertical-align: -.2rem;
+							content: $ico-arrow-down; // see _icons.scss .ico-arrow-down if change
+						}
+					}
+
+					&__choice {
+						float: left;
+						padding: 0 $space-multiple;
+						margin-top: $space-multiple;
+						margin-right: $space-multiple;
+						font-size: 90%;
+						color: $color-blue !important; // stylelint-disable-line declaration-no-important
+						cursor: default;
+						background-color: #e4e4e4;
+						border: 1px solid #aaa;
+						border-radius: 4px;
+
+						&__remove {
+							margin-right: $space-multiple;
+						}
+					}
+				}
+
+				#{$select}-search {
+					&__field {
+						width: 100% !important; // stylelint-disable-line declaration-no-important
+						margin-top: $space-multiple;
+						font-size: $input-btn-font-size;
+						color: $color-grey;
+						text-overflow: ellipsis;
+						cursor: pointer;
+						background: transparent;
+						border: none;
+						outline: 0;
+						box-shadow: none;
+
+						&::placeholder {
+							color: $color-grey;
+						}
+					}
+				}
+			}
+		}
+
+		&#{$select}-container--open {
+			#{$select}-selection {
+				color: $color-white;
+				background: $color-blue-dark;
+				border-color: $color-blue-dark;
+
+				&--single,
+				&--multiple {
+					border-radius: $border-radius !important; // stylelint-disable-line declaration-no-important
+				}
+
+				&__rendered {
+					color: $color-white;
+				}
+
+				&__arrow {
+					&::before {
+						color: $color-white;
+					}
+				}
+			}
+		}
+
+		#{$select}-dropdown {
+			padding: 10px 0;
+			margin-top: 0;
+			overflow: hidden;
+			border: none;
+			border-radius: $border-radius;
+			box-shadow: $box-shadow-default;
+
+			#{$select}-search {
+				&__field {
+					padding: $input-btn-padding-y-sm $input-btn-padding-x-sm;
+					font-size: $input-btn-font-size;
+					font-weight: 400;
+					color: $color-blue-dark;
+					border: $border-default;
+					border-radius: $border-radius;
+				}
+			}
+
+			#{$select}-results {
+				font-size: $input-btn-font-size;
+
+				&__option {
+					padding: $input-btn-padding-y-sm $input-btn-padding-x-sm;
+					color: $color-blue-dark;
+
+					&[aria-selected="true"] {
+						color: $color-blue-light;
+						background: $color-grey-light;
+					}
+
+					&--highlighted {
+						background: $color-grey-light;
+
+						&[aria-selected="true"] {
+							color: $color-blue-light;
+							background: $color-grey-light;
+						}
+					}
+				}
+			}
+
+			/* stylelint-disable selector-max-compound-selectors, selector-max-combinators */
+			& > #{$select}-results > #{$select}-results__options > #{$select}-results__option {
+				//padding: 0;
+
+				&[role="group"] {
+					margin-top: 8px;
+
+					strong {
+						display: block;
+						padding: .25rem $input-btn-padding-y;
+						font-size: 1.2rem;
+						font-weight: 500;
+						color: $color-grey;
+						text-transform: uppercase;
+					}
+
+					li {
+						padding: $input-btn-padding-y-sm $input-btn-padding-y;
+						font-weight: 400;
+						color: $color-blue-dark;
+
+						.no-touch &:hover {
+							color: $color-white;
+							background: $color-blue-dark;
+						}
+
+						&[aria-selected="true"] {
+							color: $color-blue-light;
+
+							.no-touch &:hover {
+								color: $color-white;
+								background: $color-blue-dark;
+							}
+						}
+					}
+
+					&:first-child {
+						margin-top: 0;
+					}
+				}
+
+				&[role="treeitem"] {
+					padding: $input-btn-padding-y-sm $input-btn-padding-y;
+					color: $color-blue-dark;
+
+					.no-touch &:hover {
+						color: $color-white;
+						background: $color-blue-dark;
+					}
+
+					&[aria-selected="true"] {
+						color: $color-blue-light;
+
+						.no-touch &:hover {
+							color: $color-white;
+						}
+					}
+				}
+			}
+
+			/* stylelint-enable */
+		}
+
+		&:focus {
+			outline: 0;
+		}
+	}
+
+	// Use on dashboard
+	&-container#{$select}-container--invert,
+	&-container#{$select}-container--bordered,
+	&-container#{$select}-container--full { // use on details compte et contrat
+		#{$select}-selection {
+			border-color: $color-white;
+
+			&__rendered {
+				color: $color-white;
+			}
+
+			&__arrow {
+				&::before {
+					color: $color-white;
+				}
+			}
+		}
+
+		&#{$select}-container--open {
+			#{$select}-selection {
+				border-color: $color-blue-dark;
+			}
+		}
+	}
+
+	&-container#{$select}-container--full { // use on details compte et contrat
+		&#{$select}-container--open:not(#{$select}) {
+			@include media-breakpoint-down(md) {
+				left: 1rem !important; // stylelint-disable-line declaration-no-important
+			}
+		}
+
+		#{$select}-dropdown {
+			@include media-breakpoint-down(md) {
+				width: calc(100vw - 2rem) !important; // stylelint-disable-line declaration-no-important
+			}
+		}
+	}
+
+	// Use on filter or advanced search
+	&-container#{$select}-container--sm {
+		@include media-breakpoint-down(md) {
+			.o-search__modal & {
+				width: 100% !important; // stylelint-disable-line declaration-no-important
+				background: $color-white;
+			}
+		}
+
+		#{$select}-selection {
+			&__rendered {
+				padding: $input-btn-padding-y-sm ($input-btn-padding-x-sm * 2 + $size-arrow) $input-btn-padding-y-sm $input-btn-padding-x-sm !important; // stylelint-disable-line declaration-no-important
+				font-size: $input-btn-font-size-sm;
+				font-weight: 500;
+				@include media-breakpoint-down(md) {
+					.o-search__modal & {
+						padding: $input-btn-padding-y !important; // stylelint-disable-line declaration-no-important
+						border-radius: $border-radius;
+					}
+				}
+			}
+
+			&__arrow {
+				padding: 0 $input-btn-padding-x-sm;
+			}
+
+			&--multiple {
+				#{$select}-selection {
+					&__rendered {
+						padding: ($input-btn-padding-y-sm - $space-multiple) (($input-btn-padding-x-sm * 2 + $size-arrow) - $space-multiple) $input-btn-padding-y-sm $input-btn-padding-x-sm !important; // stylelint-disable-line declaration-no-important
+						&::after {
+							top: $input-btn-padding-x-sm;
+							right: $input-btn-padding-y-sm + $size-arrow / 2;
+						}
+					}
+
+					&__choice {
+						margin-top: $space-multiple;
+						margin-right: $space-multiple;
+						font-size: 90%;
+						color: $color-blue !important; // stylelint-disable-line declaration-no-important
+					}
+				}
+
+				#{$select}-search {
+					&__field {
+						width: 100% !important; // stylelint-disable-line declaration-no-important
+						margin-top: $space-multiple;
+						font-size: $input-btn-font-size;
+						color: $color-grey;
+						text-overflow: ellipsis;
+						cursor: pointer;
+
+						&::placeholder {
+							color: $color-grey;
+						}
+					}
+				}
+			}
+		}
+
+		#{$select}-dropdown {
+			padding: 0;
+		}
+	}
+
+	&-results {
+		max-height: 240px;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+		-ms-overflow-style: -ms-autohiding-scrollbar;
+	}
+
+	&-hidden-accessible {
+		width: auto !important; // stylelint-disable-line declaration-no-important
+		max-width: calc(100% - 20px);
+
+		&.w-100 {
+			width: 100% !important; // stylelint-disable-line declaration-no-important
+		}
+	}
+}

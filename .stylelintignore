@@ -1,0 +1,3 @@
+web/medias
+**/*.css
+web/src/scss/4.generic/_icons-generated.scss

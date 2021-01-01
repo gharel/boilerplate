@@ -1,0 +1,184 @@
+# BCI.net CIT / CD configuration.
+# @see https://docs.gitlab.com/ee/ci/yaml
+# -----------------------------------------------------------------------------------
+
+# Stages is used to define stages that can be used by jobs and is defined globally.
+# @see https://docs.gitlab.com/ee/ci/yaml/#stages
+stages:
+  - validate
+  - build
+  - test
+  - deploy
+
+# Custom variables
+variables:
+  CUSTOM_IMAGE: skazy/bci-net
+
+# Validates dependencies security.
+validate_security:
+  image: ${CUSTOM_IMAGE}
+  script:
+    - security-checker security:check
+  stage: validate
+  allow_failure: true
+  except:
+    - master
+
+# Validates composer files.
+validate_composer:
+  image: composer:latest
+  script:
+    - composer validate
+  stage: validate
+  except:
+    - master
+
+# Building site.
+build:
+  image: ${CUSTOM_IMAGE}
+  script:
+    # Install back dependencies
+    - composer self-update
+    - composer install
+    # Install front dependencies
+    - npm i
+    - npm run build
+  # Cache dependencies
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    policy: push
+    paths:
+      - vendor
+      - node_modules
+  stage: build
+  except:
+    - master
+
+# Magic number detector.
+# @see https://github.com/povils/phpmnd
+test_phpmnd:
+  image: ${CUSTOM_IMAGE}
+  script:
+    - vendor/bin/phpmnd web --progress
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    policy: pull
+    paths:
+      - vendor
+  stage: test
+  except:
+    - master
+
+# Testing PHP Syntax.
+test_php_lint:
+  image: ${CUSTOM_IMAGE}
+  script:
+    - vendor/bin/parallel-lint web
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    policy: pull
+    paths:
+      - vendor
+  stage: test
+  except:
+    - master
+
+# Testing Coding standards.
+# If too many errors, "--runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1" can be added in commands.
+# Use "vendor/bin/phpcbf web --ignore=*.min.*,*.md,*.css" to fix automatically errors.
+#
+# If a rule is too specific and needs to be ignored, check the used rulesets :
+# - https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/PSR2/ruleset.xml
+# - https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/PSR1/ruleset.xml
+# - https://github.com/djoos/Symfony-coding-standard/blob/master/Symfony/ruleset.xml
+test_coding_standards:
+  image: ${CUSTOM_IMAGE}
+  script:
+    - vendor/bin/phpcs --config-set installed_paths vendor/escapestudios/symfony2-coding-standard
+    - vendor/bin/phpcs --config-set ignore_warnings_on_exit 1
+    - vendor/bin/phpcs --standard=Symfony --exclude=Generic.WhiteSpace.DisallowTabIndent --tab-width=4 --ignore=*.min.*,*.md,*.css,*.js web
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    policy: pull
+    paths:
+      - vendor
+  stage: test
+  except:
+    - master
+
+# Testing duplicate code.
+# Copy/paste detector library.
+test_copy_paste:
+  image: ${CUSTOM_IMAGE}
+  script:
+    - vendor/bin/phpcpd web
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    policy: pull
+    paths:
+      - vendor
+  stage: test
+  except:
+    - master
+
+# Testing SCSS Syntax.
+test_scss_lint:
+  image: ${CUSTOM_IMAGE}
+  script:
+    - npm run lint:scss
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    policy: pull
+    paths:
+      - node_modules
+  stage: test
+  except:
+    - master
+
+# Testing JS Syntax.
+test_js_lint:
+  image: ${CUSTOM_IMAGE}
+  script:
+    - npm run lint:js
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    policy: pull
+    paths:
+      - node_modules
+  stage: test
+  except:
+    - master
+
+# Deploy to dev server.
+deploy_dev:
+    image: kroniak/ssh-client
+    before_script:
+        # Install ssh-agent if not already installed
+        - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+
+        # Run ssh-agent (inside the build environment)
+        - eval $(ssh-agent -s)
+
+        # Add the SSH key stored in SSH_PRIVATE_KEY_DEV variable to the agent store
+        # We're using tr to fix line endings which makes ed25519 keys work
+        # without extra base64 encoding.
+        # https://gitlab.com/gitlab-examples/ssh-private-key/issues/1#note_48526556
+        - echo "$SSH_PRIVATE_KEY_DEV" | tr -d '\r' | ssh-add - > /dev/null
+
+        # Create the SSH directory and give it the right permissions
+        - mkdir -p ~/.ssh
+        - chmod 700 ~/.ssh
+
+        # Use ssh-keyscan to scan the keys of your private server.
+        - ssh-keyscan 149.28.170.248 >> ~/.ssh/known_hosts
+        - chmod 644 ~/.ssh/known_hosts
+
+    script:
+        # Call a pre-defined script that will do all needed commands.
+        - ssh webskazy@149.28.170.248 "~/sites/BCI-net/scripts/deploy-dev.sh"
+    environment:
+        name: DEV
+        url: https://opt.dev.skazy.name/
+    stage: deploy
+    only:
+        - develop

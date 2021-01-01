@@ -1,0 +1,30 @@
+a {
+	color: $color-blue;
+	text-decoration: none;
+	cursor: pointer;
+	transition: color .2s linear;
+
+	&:hover {
+		color: $color-blue;
+		text-decoration: underline;
+	}
+
+	img {
+		border: 0;
+	}
+
+	&.btn-other { // stylelint-disable-line selector-no-qualifying-type
+		color: $color-blue;
+		background-color: $color-lightest;
+		border: $border-default;
+		@include media-breakpoint-down(md) {
+			color: $color-white;
+			background-color: $color-blue;
+		}
+
+		.no-touch &:hover { // stylelint-disable-line selector-no-qualifying-type
+			color: $color-white;
+			background-color: $color-blue-light;
+		}
+	}
+}

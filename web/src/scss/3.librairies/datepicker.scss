@@ -1,0 +1,108 @@
+// jQuery UI Datepicker
+.ui-datepicker {
+	z-index: $zindex-select !important; // stylelint-disable-line declaration-no-important
+	width: 24.5rem;
+	background: $color-white;
+	border: 1px solid darken($color-white, 20);
+	border-radius: $border-radius;
+	box-shadow: 0 2px 5px transparentize($color-black, .9);
+
+	&-header {
+		background: $color-blue;
+		border-radius: $border-radius;
+
+		select {
+			display: inline-block;
+			padding: 4px;
+			color: $color-grey;
+			background: $color-white;
+			border: 0;
+
+			& + select {
+				margin-left: 5px !important; // stylelint-disable-line declaration-no-important
+			}
+		}
+	}
+
+	&-prev,
+	&-next {
+		top: 3px !important; // stylelint-disable-line declaration-no-important
+		cursor: pointer;
+
+		span {
+			display: none !important; // stylelint-disable-line declaration-no-important
+		}
+
+		&::before {
+			position: relative;
+			display: block;
+			font-family: icons, sans-serif;
+			font-size: .8rem;
+			line-height: 28px;
+			color: $color-white;
+			text-align: center;
+			vertical-align: .3em;
+			content: $ico-arrow-down;
+		}
+
+		&-hover {
+			&::before {
+				position: relative;
+			}
+		}
+	}
+
+	&-prev {
+		left: 2px !important; // stylelint-disable-line declaration-no-important
+		&::before {
+			left: 0;
+			transition: left .2s;
+			transform: rotate(90deg);
+		}
+
+		&-hover {
+			&::before {
+				left: -4px;
+			}
+		}
+	}
+
+	&-next {
+		right: 2px !important; // stylelint-disable-line declaration-no-important
+		&::before {
+			right: 0;
+			transition: right .2s;
+			transform: rotate(-90deg);
+		}
+
+		&-hover {
+			&::before {
+				right: -4px;
+			}
+		}
+	}
+
+	&-calendar {
+		border-collapse: collapse;
+	}
+
+	&-other-month {
+		opacity: .5;
+	}
+
+	.ui-state-default {
+		background: darken($color-white, 8);
+	}
+
+	.ui-state-active {
+		color: $color-white;
+		background: $color-blue-light;
+	}
+
+	td {
+		a {
+			display: block;
+			padding: .2rem;
+		}
+	}
+}

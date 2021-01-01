@@ -1,0 +1,29 @@
+.tooltip {
+	pointer-events: none;
+	&-inner {
+		box-shadow: 0 2px 12px 0 transparentize($color-black, .6);
+	}
+}
+
+.bs-tooltip {
+	pointer-events: none;
+	&-top,
+	&-auto[x-placement^="top"] {
+		margin-bottom: 4px;
+	}
+
+	&-bottom,
+	&-auto[x-placement^="bottom"] {
+		margin-top: 4px;
+	}
+
+	&-left,
+	&-auto[x-placement^="left"] {
+		margin-right: 4px;
+	}
+
+	&-right,
+	&-auto[x-placement^="right"] {
+		margin-left: 4px;
+	}
+}

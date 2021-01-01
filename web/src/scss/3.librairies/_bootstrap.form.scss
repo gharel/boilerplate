@@ -1,0 +1,59 @@
+.form {
+	&-col {
+		display: inline-block;
+		margin-right: 6px;
+		margin-bottom: 10px;
+		@include media-breakpoint-down(md) {
+			margin-right: 0;
+		}
+	}
+
+	&-control {
+		height: auto;
+		font-size: $input-btn-font-size;
+		color: $color-blue;
+		border: $border-default;
+		box-shadow: none;
+		appearance: none;
+
+		&-sm {
+			padding-top: $input-btn-padding-y-sm;
+			padding-bottom: $input-btn-padding-y-sm;
+			font-size: $input-btn-font-size-sm;
+			font-weight: 500;
+		}
+
+		&.no-border {
+			border: 1px solid transparent;
+		}
+
+		&-float {
+			position: absolute;
+			top: 50%;
+			right: 1rem;
+			transform: translateY(-50%);
+		}
+
+		& + & {
+			margin-top: 20px;
+		}
+
+		&.datepicker[readonly] {
+			background: $color-white;
+			box-shadow: none;
+		}
+	}
+
+	// Use on login page for recupérer mon login
+	&-text {
+		font-size: 1.4rem;
+
+		a {
+			text-decoration: underline;
+
+			.no-touch &:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}

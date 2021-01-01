@@ -1,0 +1,174 @@
+@import "1.settings/variables";
+
+@media print {
+	.dnoneprint {
+		display: none;
+	}
+}
+
+@page {
+	margin: 2cm;
+}
+
+body {
+	max-width: 21cm;
+	margin: auto;
+	font-family: Roboto, sans-serif;
+	color: $color-blue;
+}
+
+h1 {
+	padding-bottom: 1cm;
+	font-size: 15pt;
+	&.main-title { // stylelint-disable-line selector-no-qualifying-type
+		border-bottom: $border-default;
+	}
+}
+
+h2 {
+	font-size: 12pt;
+}
+
+h3 {
+	font-size: 11pt;
+}
+
+p {
+	font-size: 12pt;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+#printbtn { // stylelint-disable-line selector-max-id
+	display: block !important; // stylelint-disable-line declaration-no-important
+	width: 50% !important; // stylelint-disable-line declaration-no-important
+	padding: .2cm 0;
+	margin: .5cm auto 0;
+	font-size: 1.5rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: middle;
+	cursor: pointer;
+	user-select: none;
+	background-color: $color-blue-light;
+	border: 1px solid $color-blue-light;
+	border-radius: .4rem;
+	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+#header { // stylelint-disable-line selector-max-id
+	height: 2cm;
+	margin-bottom: .2cm;
+	text-align: left;
+
+	img { // stylelint-disable-line selector-max-id
+		width: auto;
+		height: 1.6cm;
+		padding: .2cm .5cm;
+		background-color: $color-blue;
+		border-top-right-radius: .2cm;
+		color-adjust: exact;
+		-webkit-print-color-adjust: exact; // stylelint-disable-line property-no-vendor-prefix
+		print-color-adjust: exact; // stylelint-disable-line property-no-unknown
+	}
+}
+/* stylelint-disable selector-max-id */
+#page {
+	padding: 1cm 1cm .5cm;
+	margin-bottom: .2cm;
+	border: $border-default;
+	border-radius: 4px;
+
+
+	.row:last-child{
+		.col {
+			border: none;
+		}
+	}
+}
+/* stylelint-enable selector-max-id */
+
+.dnoneprint {
+	margin: .5cm 0 1cm;
+}
+
+.row {
+	display: flex;
+}
+
+.col {
+	padding: .2cm 0;
+	border-bottom: $border-default;
+}
+
+.col,
+.col-6 {
+	flex: 0 0 50%;
+	max-width: 50%;
+}
+
+.col-12 {
+	flex: 0 0 100%;
+	max-width: 100%;
+}
+
+.col-4 {
+	flex: 0 0 33%;
+	max-width: 33%;
+}
+
+.col-3 {
+	flex: 0 0 25%;
+	max-width: 25%;
+}
+
+.color-red {
+	font-weight: 700;
+	color: $color-red;
+	text-align: center;
+}
+
+.color-gray {
+	color: $color-grey;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.font-medium {
+	font-weight: 700;
+}
+
+.mb-1 {
+	margin-bottom: 1cm;
+}
+
+.fright {
+	float: right;
+}
+
+.data-print {
+	width: 100%;
+	font-weight: 700;
+	th {
+		padding-bottom: 8px;
+		color: $color-grey;
+	}
+}
+
+// HACK MESSAGERIE
+
+.MsoListParagraph {
+	text-indent: 0 !important; // stylelint-disable-line declaration-no-important
+}

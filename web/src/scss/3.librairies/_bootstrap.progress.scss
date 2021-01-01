@@ -1,0 +1,51 @@
+.progress {
+	overflow: visible;
+	font-size: inherit;
+
+	&-boundary {
+		display: flex;
+		margin-bottom: 5px;
+	}
+
+	&-start,
+	&-end {
+		flex: 1 1 auto;
+		color: $color-blue;
+	}
+
+	&-end {
+		text-align: right;
+	}
+
+	&-bar {
+		position: relative;
+		overflow: visible;
+		border-radius: 7px 0 0 7px;
+	}
+
+	&-info {
+		position: absolute;
+		right: -40px;
+		bottom: -3px;
+		width: 80px;
+		color: $color-grey;
+		text-align: center;
+
+		&-inner {
+			display: inline-block;
+			margin-bottom: 2px;
+			background: $color-white;
+		}
+
+		&::after {
+			display: block;
+			width: 20px;
+			height: 20px;
+			margin: auto;
+			content: "";
+			background: $color-blue-light;
+			border-radius: 50%;
+			box-shadow: 0 2px 4px 0 transparentize($color-black, .8);
+		}
+	}
+}

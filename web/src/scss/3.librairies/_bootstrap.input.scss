@@ -1,0 +1,75 @@
+.input-group {
+	$p: &;
+	background: $color-white;
+	border-radius: $border-radius;
+
+	#{$p}-text {
+		font-weight: 500;
+		color: $color-grey;
+		background: none;
+		border: $border-default;
+	}
+
+	&.col,
+	&[class^="col-"],
+	&[class*=" col-"] {
+		background: none;
+	}
+
+	@include ico {
+		color: $color-grey;
+	}
+
+	.no-touch & .btn:hover {
+		@include ico {
+			color: inherit;
+		}
+	}
+
+	&.classic {
+		@include ico {
+			color: $color-blue-light;
+		}
+	}
+
+	&-prepend,
+	&-append {
+		position: relative;
+		z-index: 1;
+	}
+
+	&-prepend {
+		#{$p}-text {
+			border-right: 0;
+		}
+
+		.btn-white {
+			border-right: $border-default !important; // stylelint-disable-line declaration-no-important
+		}
+	}
+
+	&-append {
+		#{$p}-text {
+			border-left: 0;
+		}
+	}
+
+
+	&-sm {
+		& > .form-control {
+			font-weight: 500;
+		}
+
+		& > .form-control:not(textarea),
+		& > .custom-select {
+			height: auto;
+		}
+	}
+
+	.btn,
+	button {
+		@include ico {
+			margin-right: 0;
+		}
+	}
+}

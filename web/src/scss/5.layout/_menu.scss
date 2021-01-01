@@ -1,0 +1,148 @@
+.l-menu {
+	$p: &;
+	position: fixed;
+	top: $height-header;
+	bottom: 0;
+	left: 0;
+	z-index: $zindex-menu;
+	display: flex;
+	flex: 0 0 $width-menu;
+	flex-flow: column nowrap;
+	width: $width-menu;
+	height: 100%;
+	@include media-breakpoint-down(md) {
+		top: auto;
+		right: 0;
+		bottom: 0;
+		order: 2;
+		width: 100%;
+		height: auto;
+	}
+
+	&__nav {
+		flex: 1 1 auto;
+		background-color: $color-blue-dark;
+	}
+
+	&__list {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-items: stretch;
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		@include media-breakpoint-down(md) {
+			flex-flow: row nowrap;
+			align-items: flex-end;
+			border-top: 1px solid transparentize($color-white, .925);
+		}
+	}
+
+	&__item {
+		position: relative;
+		flex: 1 1 auto;
+		margin: 5px 0;
+		font-size: 1.5rem;
+		font-weight: 400;
+		color: transparentize($white, .5);
+		@include media-breakpoint-down(md) {
+			font-size: 1.3rem;
+			&:first-child {
+				display: none;
+			}
+		}
+		@media (max-height: 730px) {
+			margin: 0;
+		}
+
+		&.is-active {
+			@include media-breakpoint-up(lg) {
+				&::before {
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					display: block;
+					width: 10px;
+					content: "";
+					background: $white;
+					border: 0;
+					border-top-right-radius: 6px;
+					border-bottom-right-radius: 6px;
+				}
+			}
+		}
+
+		&.is-active,
+		&:hover {
+			font-weight: 700;
+			color: $white;
+
+			#{$p}__link {
+				color: inherit;
+				text-decoration: none;
+			}
+
+			#{$p}__text {
+				font-weight: 700;
+			}
+		}
+	}
+
+	&__link {
+		display: flex;
+		flex-flow: column nowrap;
+		padding: 20px 15px;
+		color: inherit;
+		text-align: center;
+		@include media-breakpoint-down(md) {
+			padding: 15px 8px;
+		}
+
+		@media (max-height: 700px) {
+			padding: 15px;
+		}
+
+		.no-touch &:hover {
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+
+	&__ico {
+		font-size: 3.5rem;
+		line-height: 1;
+		color: inherit;
+		@include media-breakpoint-down(md) {
+			font-size: 2rem;
+		}
+
+		&.ico-account {
+			font-size: 2.2rem;
+			@include media-breakpoint-down(md) {
+				font-size: 1.5rem;
+			}
+		}
+	}
+
+	&__text {
+		margin-top: 15px;
+		font-weight: 400;
+		line-height: 1.2;
+		color: inherit;
+
+		@media (max-height: 700px) {
+			margin-top: 8px;
+		}
+	}
+
+	.badge {
+		position: absolute;
+		top: 15px;
+		right: 50px;
+		@include media-breakpoint-down(md) {
+			top: 10px;
+			right: calc(50% - 20px);
+		}
+	}
+}

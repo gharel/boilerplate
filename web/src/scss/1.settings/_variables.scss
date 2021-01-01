@@ -1,0 +1,93 @@
+$fonts-folder: "../fonts" !default;
+
+$xxs: 374px !default;
+$xs: 0 !default;
+$sm: 576px !default;
+$md: 768px !default;
+$lg: 1100px !default; // see src/main.js to change const breakpoint (value: $lg - 1)
+$xl: 1260px !default;
+$xxl: 1380px !default;
+
+$color-blue: #224187 !default;
+$color-blue-dark: #162b5b !default;
+$color-blue-darker: #08122a !default;
+$color-blue-light: #00b1e9 !default;
+$color-blue-lighter: #76deff !default;
+$color-blue-pass: #00b9e8 !default;
+$color-red: #f96779 !default;
+$color-red-light: #f9919d !default;
+$color-green: #43c08a !default;
+$color-green-light: #61edb1 !default;
+$color-grey-blue: #cad4de !default;
+$color-grey: #8ca0b3 !default;
+$color-grey-darkest: #444 !default;
+$color-grey-dark: lighten($color-grey, 20) !default;
+$color-grey-light: #e2e2e2 !default;
+$color-locked: transparentize($color-grey, .5) !default;
+$gradient-blue: linear-gradient(45deg, #00afe9 0%, #00c7e7 100%) !default;
+$gradient-blue-dark: linear-gradient(45deg, $color-blue-dark 0%, #1e356b 100%) !default;
+
+$color-pastel-blue-bis: #00aceb !default;
+$color-pastel-blue: #76deff !default;
+$color-pastel-turquoise: #42cfcc !default;
+$color-pastel-purple: #e53ba3 !default;
+$color-pastel-green: #89c557 !default;
+$color-pastel-orange: #fb9045 !default;
+
+$color-bs-yellow: #faf0a3 !default;
+$color-bs-red: #f9a292 !default;
+
+$color-disabled: #e9ecef !default;
+$color-white: #fff !default;
+$color-light: #e8e8e8 !default;
+$color-lighter: #f5f6f7 !default;
+$color-lighter2: #eeeff1 !default;
+$color-lightest: #fafbfc !default;
+$color-black: #000 !default;
+$color-dark: #333 !default;
+
+$color-red-transparent: transparentize($color-red, .05) !default;
+$color-checkbox: transparentize($color-grey, .5) !default;
+$color-border: transparentize($color-grey, .65) !default;
+$color-devise: transparentize($color-grey, .85) !default;
+$color-toggle: transparentize($color-grey, .95) !default;
+
+$border-default: 1px solid $color-border !default;
+$box-shadow-default: 0 6px 9px 0 transparentize($color-black, .8) !default;
+$card-shadow: 0 12px 18px 0 rgba(0, 0, 0, .15) !default;
+
+// change if code change in _icons-generated.scss
+$ico-arrow-down: "\E004" !default;
+$ico-attachment: "\E006" !default;
+$ico-checkbox-rounded: "\E00F" !default;
+$ico-checkbox: "\E010" !default;
+$ico-edit: "\E01D" !default;
+$ico-trash: "\E04C" !default;
+
+$height-header: 100px !default;
+$height-search: 50px !default;
+$width-menu: 150px !default;
+$height-header-mob: 76px !default;
+$height-search-mob: 60px !default;
+$height-footer-mob: 76px !default;
+
+$size-scrollbar: 6px !default;
+$color-scrollbar: $color-grey !default;
+$border-radius-scrollbar: 4px !default;
+$opacity-track-scrollbar: .7 !default;
+$opacity-thumb-scrollbar: 0 !default;
+
+$zindex-goku: 9999 !default;
+$zindex-header-modal: 99 !default;
+$zindex-select: 98 !default;
+$zindex-modal: 97 !default;
+$zindex-overlay: 96 !default;
+$zindex-tooltip: 95 !default;
+$zindex-logo: 94 !default;
+$zindex-maintenance: 93 !default;
+$zindex-login: 92 !default;
+$zindex-header: 91 !default;
+$zindex-menu: 90 !default;
+$zindex-dropdown: 89 !default;
+$zindex-search: 88 !default;
+$zindex-sticky: 87 !default;

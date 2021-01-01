@@ -1,0 +1,150 @@
+.link {
+	padding: 0;
+	font-size: 1.5rem;
+	color: $color-grey;
+	text-decoration: underline;
+	cursor: pointer;
+	background: none;
+	border-color: transparent;
+
+	.no-touch &:not(:disabled):hover,
+	&:active {
+		color: $color-grey;
+		text-decoration: none;
+		background: none;
+		border-color: transparent;
+	}
+
+	&-info {
+		color: $info;
+
+		.no-touch &:hover,
+		&:active {
+			text-decoration: none;
+		}
+	}
+}
+
+.btn {
+	.no-touch &:hover,
+	&:active {
+		text-decoration: none;
+	}
+	&-sm {
+		min-height: 35px;
+	}
+
+	&-gradient {
+		display: inline-flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		color: $color-white;
+		transition: none;
+
+		&.is-active,
+		.no-touch &:not(:disabled):hover,
+		&:not(:disabled):active {
+			color: $color-white;
+			background: $gradient-blue;
+			border-color: transparent;
+		}
+
+		strong {
+			display: block;
+		}
+
+		small {
+			font-size: 1.4rem;
+			opacity: .6;
+		}
+	}
+
+	&-grey {
+		color: $color-blue;
+		background: $color-grey-light;
+		border-color: $color-grey-light;
+
+		.no-touch &:not(:disabled):hover,
+		&:not(:disabled):active {
+			color: $color-white;
+			background: $color-grey;
+			border-color: $color-grey;
+		}
+	}
+
+	&-secondary {
+		color: $color-white;
+
+		.no-touch &:not(:disabled):hover,
+		&:not(:disabled):active {
+			color: $color-white;
+			background: $color-blue-light;
+			border-color: $color-blue-light;
+		}
+	}
+
+	&-white {
+		color: $color-blue;
+
+		.no-touch &:not(:disabled):hover,
+		&:not(:disabled):active {
+			color: $color-white;
+			background: $color-blue-light;
+			border-color: $color-blue-light;
+		}
+	}
+
+	&-outline {
+		color: $color-grey;
+		background: transparent;
+		border-color: $color-grey;
+		.no-touch &:not(:disabled):hover,
+		&:not(:disabled):active {
+			color: $color-grey;
+		}
+
+		&-secondary {
+			.no-touch &:not(:disabled):hover,
+			&:not(:disabled):active {
+				color: $color-white;
+				background: $color-blue-light;
+				border-color: $color-blue-light;
+			}
+		}
+
+		&-info {
+			&.hover,
+			&:not(:disabled):active {
+				color: $color-white !important; // stylelint-disable-line declaration-no-important
+				background: $color-blue-light !important; // stylelint-disable-line declaration-no-important
+			}
+		}
+	}
+
+	&-widerlink {
+		@include media-breakpoint-down(md) {
+			position: absolute !important; // stylelint-disable-line declaration-no-important
+			top: 0;
+			left: 0;
+			z-index: 0;
+			display: block !important; // stylelint-disable-line declaration-no-important
+			width: calc(100% + 20px);
+			height: calc(100% + 20px);
+			margin: -10px !important; // stylelint-disable-line declaration-no-important
+			font-size: 0 !important; // stylelint-disable-line declaration-no-important
+			background: transparent !important; // stylelint-disable-line declaration-no-important
+			&:active,
+			&:focus {
+				border: 0 !important; // stylelint-disable-line declaration-no-important
+				outline: none !important; // stylelint-disable-line declaration-no-important
+				box-shadow: none !important; // stylelint-disable-line declaration-no-important
+			}
+		}
+	}
+
+	&:disabled {
+		cursor: default;
+		opacity: 1;
+	}
+}

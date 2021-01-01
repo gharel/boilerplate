@@ -1,6 +1,3 @@
+web/medias
 **/*.min.js
-**/vendor/*
-**/dist/*
-**/build/*
-**/temp/*
-**/tmp/*
+gulpfile.js

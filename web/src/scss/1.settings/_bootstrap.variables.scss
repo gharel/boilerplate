@@ -1,0 +1,127 @@
+$primary: $color-blue !default;
+$secondary: $color-grey !default;
+$danger: $color-red !default;
+$success: $color-green !default;
+$info: $color-blue-light !default;
+
+$theme-colors: (
+	"white": $color-white,
+	"gradient": $color-grey
+) !default;
+
+// Need to be override if we just add a new size (since BootStrap 4.3.1)
+$grid-breakpoints: (
+	xs: $xs,
+	sm: $sm,
+	md: $md,
+	lg: $lg,
+	xl: $xl,
+	xxl: $xxl
+) !default;
+
+$spacer: 1rem !default;
+
+// Handle margin / padding (ex: mt-6, px-md-4)
+$spacers: (
+	-3: ($spacer * -1.5), // remove this if you can BS provide mt-n3 for same result
+	-1: ($spacer * -.5),
+	1: ($spacer * .5),
+	2: ($spacer * 1),
+	3: ($spacer * 1.5),
+	4: ($spacer * 2),
+	5: ($spacer * 2.5),
+	6: ($spacer * 3),
+	7: ($spacer * 4),
+	8: ($spacer * 5),
+	9: ($spacer * 4.5),
+	11: ($spacer * 5.5),
+	14: ($spacer * 7),
+	16: ($spacer * 8),
+	17: ($spacer * 8.5),
+	18: ($spacer * 9),
+	20: ($spacer * 10),
+	23: ($spacer * 11.5),
+) !default;
+
+// Handle width (ex: w-16)
+$sizes: (
+	1: 1%,
+	5: 5%,
+	10: 10%,
+	12: 12%,
+	13: 13%,
+	14: 14%,
+	15: 15%,
+	16: 16%,
+	18: 18%,
+	20: 20%,
+	25: 25%,
+	30: 30%,
+	35: 35%,
+	37: 37%,
+	40: 40%,
+	50: 50%,
+	60: 60%,
+	70: 70%,
+	75: 75%,
+	auto: auto
+) !default;
+
+$border-radius: .4rem !default;
+$border-radius-lg: .4rem !default;
+$border-radius-sm: .4rem !default;
+
+$font-size-base: 1.6rem !default;
+
+$input-btn-font-size: 1.5rem !default;
+$input-btn-font-size-sm: 1.5rem !default;
+
+$input-btn-padding-y-sm: .55rem !default;
+$input-btn-padding-x-sm: 1.2rem !default;
+
+$input-btn-padding-y: 1.3rem !default;
+$input-btn-padding-x: 2rem !default;
+
+$input-btn-padding-y-lg: 1.8rem !default;
+$input-btn-padding-x-lg: 2.5rem !default;
+
+$input-color: $color-grey-darkest !default;
+$input-border-color: $color-white !default;
+$input-group-addon-bg: $color-white !default;
+
+$form-text-margin-top: 1rem !default;
+
+$badge-font-size: 1.1rem !default;
+$badge-padding-y: .25em !default;
+$badge-padding-x: .45em !default;
+$badge-border-radius: 9rem !default;
+$badge-pill-padding-x: .2em !default;
+
+$modal-inner-padding: 0 1.5rem !default;
+$modal-header-padding-y: 1.5rem !default;
+$modal-header-padding-x: 2.5rem !default;
+
+$modal-xl: 1140px !default;
+$modal-lg: 800px !default;
+$modal-md: 600px !default;
+$modal-sm: 300px !default;
+
+$nav-link-padding-y: 1.8rem !default;
+$nav-link-padding-x: 0 !default;
+$nav-tabs-border-width: 0 !default;
+$nav-tabs-link-active-color: $color-blue-light !default;
+
+$tooltip-font-size: 1.4rem !default;
+$tooltip-color: $color-grey !default;
+$tooltip-bg: $color-white !default;
+$tooltip-opacity: 1 !default;
+$tooltip-padding-y: 1.5rem !default;
+$tooltip-padding-x: 1.5rem !default;
+$tooltip-arrow-color: $color-white !default;
+$tooltip-arrow-width: 12px !default;
+$tooltip-arrow-height: 4px !default;
+$tooltip-max-width: 280px !default;
+
+$progress-height: 14px !default;
+$progress-border-radius: 7px !default;
+$progress-bar-bg: $color-blue-light !default;

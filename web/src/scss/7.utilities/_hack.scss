@@ -1,0 +1,24 @@
+.messageBody p:last-child {
+	margin-bottom: 0;
+}
+
+@include media-breakpoint-down(md) {
+	.h-va-30 {
+		height: 3rem;
+		line-height: 3rem !important; // stylelint-disable-line declaration-no-important
+		& > span {
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+}
+
+.alert-hidden {
+	display: none;
+}
+
+// HACK MESSAGERIE
+
+.MsoListParagraph {
+	text-indent: 0 !important; // stylelint-disable-line declaration-no-important
+}

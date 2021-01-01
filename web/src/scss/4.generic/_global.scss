@@ -1,0 +1,45 @@
+html {
+	font-size: 62.5%;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body,
+input,
+textarea,
+button,
+select {
+	font-family: Roboto, sans-serif;
+	font-size: 1.6rem;
+}
+
+body {
+	color: $color-grey;
+
+	@include media-breakpoint-up(lg) {
+		overflow-y: scroll; // if we use scroll, we can't style scrollbar so we have to do a choice (maybe correct later by chrome, 10 octobre 2019)
+		-webkit-overflow-scrolling: touch;
+		-ms-overflow-style: -ms-autohiding-scrollbar;
+	}
+}
+
+nav {
+	ul {
+		@include list-unstyled;
+		margin-bottom: 0;
+	}
+}
+
+ul {
+	padding-left: 20px;
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+img {
+	max-width: 100%;
+}

@@ -1,0 +1,37 @@
+.nav {
+	$p: &;
+
+	&-tabs {
+		font-weight: 500;
+
+		&-outer {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			border-bottom: $border-default;
+		}
+
+		#{$p}-item {
+			margin-right: 30px;
+		}
+
+		#{$p}-link {
+			position: relative;
+			color: $color-grey;
+
+			&.active {
+				&::after {
+					position: absolute;
+					right: 0;
+					bottom: -1px;
+					left: 0;
+					height: 3px;
+					content: "";
+					background-color: $color-blue-light;
+					border-top-left-radius: $border-radius/2;
+					border-top-right-radius: $border-radius/2;
+				}
+			}
+		}
+	}
+}
